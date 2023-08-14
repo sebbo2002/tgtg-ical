@@ -11,7 +11,7 @@
   },
   "description": "A template that I use to start new projects and services.",
   "devDependencies": {
-    "@qiwi/semantic-release-gh-pages-plugin": "^5.2.3",
+    "@qiwi/semantic-release-gh-pages-plugin": "^5.2.8",
     "@sebbo2002/semantic-release-docker": "^2.1.0-develop.1",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/exec": "^6.0.3",

@@ -1,3 +1,10 @@
+# [1.0.0-develop.5](https://github.com/sebbo2002/tgtg-ical/compare/v1.0.0-develop.4...v1.0.0-develop.5) (2023-08-16)
+
+
+### Bug Fixes
+
+* Fix cleanup typo + 3h min age ([0320248](https://github.com/sebbo2002/tgtg-ical/commit/03202488ac88e96dc6417ab7ba3a53b4642b058e))
+
 # [1.0.0-develop.4](https://github.com/sebbo2002/tgtg-ical/compare/v1.0.0-develop.3...v1.0.0-develop.4) (2023-08-16)
 
 # [1.0.0-develop.3](https://github.com/sebbo2002/tgtg-ical/compare/v1.0.0-develop.2...v1.0.0-develop.3) (2023-08-16)

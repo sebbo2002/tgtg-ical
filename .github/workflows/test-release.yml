@@ -105,11 +105,18 @@ jobs:
           echo "$SSH_PRIVATE_KEY" > ../private.key
           sudo chmod 600 ../private.key
           echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          echo "$SSH_CONFIG" > ~/.ssh/config
         shell: bash
         env:
           SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
           SSH_KNOWN_HOSTS: ${{secrets.SSH_KNOWN_HOSTS}}
           SSH_KEY_PATH: ${{ github.workspace }}/../private.key
+          SSH_CONFIG: |
+            Host tgtg-ical.sebbo.net
+              HostName markab.uberspace.de
+              Port 22
+              User tgtgical
+              IdentityFile ${{ github.workspace }}/../private.key
       - name: 🏁 Deploy on tgtg-ical.sebbo.net
         if: ${{ github.ref == 'refs/heads/develop' }}
         run: ./.github/workflows/deploy.sh

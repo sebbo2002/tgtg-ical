@@ -1,3 +1,10 @@
+# [1.0.0-develop.2](https://github.com/sebbo2002/tgtg-ical/compare/v1.0.0-develop.1...v1.0.0-develop.2) (2023-08-16)
+
+
+### Features
+
+* Add `npm run deploy` script to deploy directly ([fe1948d](https://github.com/sebbo2002/tgtg-ical/commit/fe1948d624dfe9bddf1f8a2e3fddfb5741aa2832))
+
 # 1.0.0-develop.1 (2023-08-16)
 
 

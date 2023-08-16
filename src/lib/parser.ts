@@ -77,6 +77,9 @@ export default class Parser {
                     {
                         lastSeenAt: {
                             equals: prisma.user.fields.createdAt
+                        },
+                        createdAt: {
+                            lt: moment().subtract(3, 'hours').toDate()
                         }
                     }
                 ]

@@ -112,7 +112,7 @@ jobs:
           SSH_KEY_PATH: ${{ github.workspace }}/../private.key
       - name: 🏁 Deploy on tgtg-ical.sebbo.net
         if: ${{ github.ref == 'refs/heads/develop' }}
-        run: ./deploy.sh
+        run: ./.github/workflows/deploy.sh
       - name: 🔃 Merge main back into develop
         if: ${{ github.ref == 'refs/heads/main' }}
         uses: everlytic/branch-merge@1.1.5

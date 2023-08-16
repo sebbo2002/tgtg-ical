@@ -1,4 +1,4 @@
-FROM node:lts-alpine@sha256:1a9a71ea86aad332aa7740316d4111ee1bd4e890df47d3b5eff3e5bded3b3d10 as build-container
+FROM node:lts-alpine@sha256:3482a20c97e401b56ac50ba8920cc7b5b2022bfc6aa7d4e4c231755770cf892f as build-container
 
 WORKDIR "/app"
 
@@ -10,14 +10,15 @@ RUN npm run build && \
     rm -rf ./.github ./src ./test ./node_modules
 
 
-FROM node:lts-alpine@sha256:1a9a71ea86aad332aa7740316d4111ee1bd4e890df47d3b5eff3e5bded3b3d10
+FROM node:lts-alpine@sha256:3482a20c97e401b56ac50ba8920cc7b5b2022bfc6aa7d4e4c231755770cf892f
 ARG NODE_ENV=production
 ENV NODE_ENV=$NODE_ENV
 WORKDIR "/app"
 
 RUN apk add --no-cache --update dumb-init && \
-    ln -s /app/dist/bin/start.js /usr/local/bin/start && \
-    ln -s /app/dist/bin/cli.js /usr/local/bin/cli
+    ln -s /app/dist/bin/cleanup.js /usr/local/bin/cleanup && \
+    ln -s /app/dist/bin/inhale-mail.js /usr/local/bin/inhale-mail && \
+    ln -s /app/dist/bin/start.js /usr/local/bin/start
 
 COPY --from=build-container /app/package*.json "/app/"
 RUN npm ci --only-production

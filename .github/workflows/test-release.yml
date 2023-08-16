@@ -1,0 +1,125 @@
+name: Test & Release
+on:
+  push:
+    branches-ignore:
+      - 'gh-pages'
+      - 'depfu/**'
+      - 'dependabot/**'
+      - 'template-updater/**'
+  pull_request: null
+
+jobs:
+  tests:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    if: github.repository != 'sebbo2002/js-template' && (contains(toJson(github.event.commits.*.message), '[skip ci]') == false || github.ref == 'refs/heads/main')
+    strategy:
+      matrix:
+        node: [16.x, 18.x]
+    steps:
+      - name: ☁️ Checkout Project
+        uses: actions/checkout@v3
+      - name: 🔧 Setup node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'npm'
+      - name: 📦 Install dependencies
+        run: npm ci
+      - name: ⏳ Run tests
+        run: npm run test
+
+  coverage:
+    name: Code Coverage / Lint
+    runs-on: ubuntu-latest
+    if: github.repository != 'sebbo2002/js-template' && (contains(toJson(github.event.commits.*.message), '[skip ci]') == false || github.ref == 'refs/heads/main')
+    steps:
+      - name: ☁️ Checkout Project
+        uses: actions/checkout@v3
+      - name: 🔧 Setup node.js
+        uses: actions/setup-node@v3
+        with:
+          cache: 'npm'
+      - name: 📦 Install dependencies
+        run: npm ci
+      - name: 🔍 Run linter
+        run: npm run lint
+      - name: ⚙️ Build project
+        run: npm run build-all
+
+  license-checker:
+    name: License Checker
+    runs-on: ubuntu-latest
+    if: contains(toJson(github.event.commits.*.message), '[skip ci]') == false || github.ref == 'refs/heads/main'
+    steps:
+      - name: ☁️ Checkout Project
+        uses: actions/checkout@v3
+      - name: 🔧 Setup node.js
+        uses: actions/setup-node@v3
+        with:
+          cache: 'npm'
+      - name: 📦 Install dependencies
+        run: npm ci
+      - name: 🕵️‍♀️ Run license checker
+        run: npm run license-check
+
+
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    concurrency: release
+    needs:
+      - coverage
+      - tests
+      - license-checker
+    if: ${{ github.repository != 'sebbo2002/js-template' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop') }}
+    steps:
+      - name: ☁️ Checkout Project
+        uses: actions/checkout@v3
+      - name: 🔧 Setup node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+      - name: 🔧 Setup regclient
+        run: |
+          mkdir -p "$HOME/.local/bin"
+          curl -L https://github.com/regclient/regclient/releases/latest/download/regctl-linux-amd64 > "$HOME/.local/bin/regctl"
+          chmod +x "$HOME/.local/bin/regctl"
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+      - name: 📦 Install dependencies
+        run: npm ci
+      - name: 📂 Create docs folder
+        run: mkdir ./docs
+      - name: 🪄 Run semantic-release
+        run: BRANCH=${GITHUB_REF#refs/heads/} npx semantic-release
+        env:
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_OWNER: ${{ github.repository_owner }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: 🔐 Add SSH key
+        if: ${{ github.ref == 'refs/heads/develop' }}
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_PRIVATE_KEY" > ../private.key
+          sudo chmod 600 ../private.key
+          echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+        shell: bash
+        env:
+          SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+          SSH_KNOWN_HOSTS: ${{secrets.SSH_KNOWN_HOSTS}}
+          SSH_KEY_PATH: ${{ github.workspace }}/../private.key
+      - name: 🏁 Deploy on tgtg-ical.sebbo.net
+        if: ${{ github.ref == 'refs/heads/develop' }}
+        run: |
+          rsync -avzr --delete --exclude node_modules ./ ${DEPLOYMENT_URL:-tgtg-ical.sebbo.net}:~/apps/tgtg-ical/package/
+          ssh ${DEPLOYMENT_URL:-tgtg-ical.sebbo.net} "cd ~/apps/tgtg-ical/package/ && npm ci && supervisorctl restart tgtg-ical && cat ~/logs/supervisord.log"
+      - name: 🔃 Merge main back into develop
+        if: ${{ github.ref == 'refs/heads/main' }}
+        uses: everlytic/branch-merge@1.1.5
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          source_ref: 'main'
+          target_branch: 'develop'
+          commit_message_template: 'Merge branch {source_ref} into {target_branch} [skip ci]'

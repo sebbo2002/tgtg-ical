@@ -67,6 +67,7 @@
   "scripts": {
     "build": "tsup",
     "build-all": "./.github/workflows/build.sh",
+    "deploy": "./.github/workflows/deploy.sh",
     "coverage": "c8 mocha",
     "develop": "ts-node ./src/bin/start.ts",
     "license-check": "license-checker --production --summary",

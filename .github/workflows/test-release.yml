@@ -112,9 +112,7 @@ jobs:
           SSH_KEY_PATH: ${{ github.workspace }}/../private.key
       - name: 🏁 Deploy on tgtg-ical.sebbo.net
         if: ${{ github.ref == 'refs/heads/develop' }}
-        run: |
-          rsync -avzr --delete --exclude node_modules ./ ${DEPLOYMENT_URL:-tgtg-ical.sebbo.net}:~/apps/tgtg-ical/package/
-          ssh ${DEPLOYMENT_URL:-tgtg-ical.sebbo.net} "cd ~/apps/tgtg-ical/package/ && npm ci && supervisorctl restart tgtg-ical && cat ~/logs/supervisord.log"
+        run: ./deploy.sh
       - name: 🔃 Merge main back into develop
         if: ${{ github.ref == 'refs/heads/main' }}
         uses: everlytic/branch-merge@1.1.5

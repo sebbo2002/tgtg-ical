@@ -162,7 +162,7 @@ export default class ServerLib {
             }
         });
         if(c > 0) {
-            throw new Error(`There are ${c} unahandled mails in the queue!`);
+            throw new Error(`There are ${c} unhandled mails in the queue!`);
         }
     }
 }

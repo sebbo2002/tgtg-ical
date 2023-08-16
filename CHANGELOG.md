@@ -1,3 +1,12 @@
+# [1.0.0-develop.4](https://github.com/sebbo2002/tgtg-ical/compare/v1.0.0-develop.3...v1.0.0-develop.4) (2023-08-16)
+
+# [1.0.0-develop.3](https://github.com/sebbo2002/tgtg-ical/compare/v1.0.0-develop.2...v1.0.0-develop.3) (2023-08-16)
+
+
+### Bug Fixes
+
+* Fix typo in /_health ([68f73da](https://github.com/sebbo2002/tgtg-ical/commit/68f73da2b120b802343e6afa20b4958ef3ac0712))
+
 # [1.0.0-develop.2](https://github.com/sebbo2002/tgtg-ical/compare/v1.0.0-develop.1...v1.0.0-develop.2) (2023-08-16)
 
 

@@ -1,3 +1,10 @@
+# [1.0.0-develop.6](https://github.com/sebbo2002/tgtg-ical/compare/v1.0.0-develop.5...v1.0.0-develop.6) (2023-08-23)
+
+
+### Reverts
+
+* Revert "ci: Downgrade is-semantic-release till it's fixed" ([91c2ab5](https://github.com/sebbo2002/tgtg-ical/commit/91c2ab59d0559a060c11d07973382c465dd3345d))
+
 # [1.0.0-develop.5](https://github.com/sebbo2002/tgtg-ical/compare/v1.0.0-develop.4...v1.0.0-develop.5) (2023-08-16)
 
 

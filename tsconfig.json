@@ -2,11 +2,11 @@
     "compilerOptions": {
         "declaration": true,
         "esModuleInterop": true,
-        "module": "nodenext",
-        "moduleResolution": "nodenext",
+        "module": "es2022",
+        "moduleResolution": "node",
         "outDir": "./dist",
         "sourceMap": true,
-        "target": "es6"
+        "target": "es2022"
     },
     "exclude": [
         "node_modules",

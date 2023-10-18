@@ -1,3 +1,10 @@
+# [1.0.0-develop.11](https://github.com/sebbo2002/tgtg-ical/compare/v1.0.0-develop.10...v1.0.0-develop.11) (2023-10-18)
+
+
+### Reverts
+
+* Revert "ci: Run tests with node.js v18, v20 and v21" ([1b245a5](https://github.com/sebbo2002/tgtg-ical/commit/1b245a58587bc6871e8b1633beff1f1bca05970f))
+
 # [1.0.0-develop.10](https://github.com/sebbo2002/tgtg-ical/compare/v1.0.0-develop.9...v1.0.0-develop.10) (2023-10-16)
 
 # [1.0.0-develop.9](https://github.com/sebbo2002/tgtg-ical/compare/v1.0.0-develop.8...v1.0.0-develop.9) (2023-10-02)

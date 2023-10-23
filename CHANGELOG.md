@@ -1,3 +1,5 @@
+# [1.0.0-develop.12](https://github.com/sebbo2002/tgtg-ical/compare/v1.0.0-develop.11...v1.0.0-develop.12) (2023-10-23)
+
 # [1.0.0-develop.11](https://github.com/sebbo2002/tgtg-ical/compare/v1.0.0-develop.10...v1.0.0-develop.11) (2023-10-18)
 
 

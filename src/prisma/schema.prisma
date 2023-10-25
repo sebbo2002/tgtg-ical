@@ -1,0 +1,57 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         String   @id @default(uuid())
+  prefix     String   @unique
+  createdAt  DateTime @default(now())
+  lastSeenAt DateTime @default(now())
+  event      Event[]
+}
+
+model Event {
+  id         String    @id @default(uuid())
+  orderId    String    @unique
+  from       DateTime
+  to         DateTime
+  amount     Int
+  price      Int
+  user       User      @relation(fields: [userId], references: [id])
+  userId     String
+  location   Location  @relation(fields: [locationId], references: [id])
+  locationId String
+  createdAt  DateTime  @default(now())
+  orderedAt  DateTime
+  invoicedAt DateTime?
+  canceledAt DateTime?
+}
+
+model Location {
+  id        String   @id @default(uuid())
+  name      String
+  address   String
+  latitude  Float?
+  longitude Float?
+  emoji     String?  @db.VarChar(16)
+  createdAt DateTime @default(now())
+  event     Event[]
+}
+
+model Mail {
+  id        String    @id @default(uuid())
+  raw       String    @db.MediumText
+  error     String?   @db.MediumText
+  errorId   String?
+  version   String?
+  createdAt DateTime  @default(now())
+  erroredAt DateTime?
+}

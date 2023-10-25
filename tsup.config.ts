@@ -4,7 +4,7 @@ export default defineConfig({
     clean: true,
     entry: [
         'src/bin/inhale-mail.ts',
-        'src/bin/clanup.ts',
+        'src/bin/cleanup.ts',
         'src/bin/start.ts'
     ],
     format: ['esm'],

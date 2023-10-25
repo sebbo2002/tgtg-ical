@@ -15,10 +15,10 @@ jobs:
     if: github.repository != 'sebbo2002/js-template' && (contains(toJson(github.event.commits.*.message), '[skip ci]') == false || github.ref == 'refs/heads/main')
     strategy:
       matrix:
-        node: [16.x, 18.x]
+        node: [16.x, 18.x, 20.x]
     steps:
       - name: ☁️ Checkout Project
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: 🔧 Setup node.js
         uses: actions/setup-node@v3
         with:
@@ -35,7 +35,7 @@ jobs:
     if: github.repository != 'sebbo2002/js-template' && (contains(toJson(github.event.commits.*.message), '[skip ci]') == false || github.ref == 'refs/heads/main')
     steps:
       - name: ☁️ Checkout Project
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: 🔧 Setup node.js
         uses: actions/setup-node@v3
         with:
@@ -53,7 +53,7 @@ jobs:
     if: contains(toJson(github.event.commits.*.message), '[skip ci]') == false || github.ref == 'refs/heads/main'
     steps:
       - name: ☁️ Checkout Project
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: 🔧 Setup node.js
         uses: actions/setup-node@v3
         with:
@@ -68,6 +68,11 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     concurrency: release
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      id-token: write
     needs:
       - coverage
       - tests
@@ -75,11 +80,11 @@ jobs:
     if: ${{ github.repository != 'sebbo2002/js-template' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop') }}
     steps:
       - name: ☁️ Checkout Project
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: 🔧 Setup node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20.x
           cache: 'npm'
       - name: 🔧 Setup regclient
         run: |
@@ -98,6 +103,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GH_OWNER: ${{ github.repository_owner }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true
       - name: 🔐 Add SSH key
         if: ${{ github.ref == 'refs/heads/develop' }}
         run: |

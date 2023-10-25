@@ -1,3 +1,16 @@
+## [1.0.1](https://github.com/sebbo2002/tgtg-ical/compare/v1.0.0...v1.0.1) (2023-10-25)
+
+
+### Bug Fixes
+
+* Fix cleanup typo + 3h min age ([0320248](https://github.com/sebbo2002/tgtg-ical/commit/03202488ac88e96dc6417ab7ba3a53b4642b058e))
+
+
+### Reverts
+
+* Revert "ci: Run tests with node.js v18, v20 and v21" ([405853b](https://github.com/sebbo2002/tgtg-ical/commit/405853bbd7fc55eb224ff657af7dab26f9482d88))
+* Revert "ci: Downgrade is-semantic-release till it's fixed" ([91c2ab5](https://github.com/sebbo2002/tgtg-ical/commit/91c2ab59d0559a060c11d07973382c465dd3345d))
+
 # 1.0.0 (2023-08-16)
 
 

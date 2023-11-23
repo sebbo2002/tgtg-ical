@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/sebbo2002/tgtg-ical/compare/v1.0.1...v1.0.2) (2023-11-23)
+
+
+### Bug Fixes
+
+* **Parser:** decode html in name / address ([7b3f5b0](https://github.com/sebbo2002/tgtg-ical/commit/7b3f5b03a78097177ca12ae6c38fd5a371ea7fc7))
+
 ## [1.0.1](https://github.com/sebbo2002/tgtg-ical/compare/v1.0.0...v1.0.1) (2023-10-25)
 
 

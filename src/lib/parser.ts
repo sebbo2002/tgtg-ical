@@ -1,6 +1,7 @@
 import { Mail, User, Location } from '@prisma/client';
 import { startTransaction, captureException } from '@sentry/node';
 import { ParsedMail, simpleParser } from 'mailparser';
+import he from 'he';
 import prisma from './db.js';
 import config from './config.js';
 import moment from 'moment-timezone';
@@ -322,8 +323,8 @@ export default class Parser {
             type: 'order',
             orderId: matches[0][1].trim(),
             location: {
-                name: matches[1][1].trim(),
-                address: matches[2] ? matches[2][5].trim() : matches[3][4].trim()
+                name: he.decode(matches[1][1].trim()),
+                address: he.decode(matches[2] ? matches[2][5].trim() : matches[3][4].trim())
             },
             time: {
                 order: moment(email.date),

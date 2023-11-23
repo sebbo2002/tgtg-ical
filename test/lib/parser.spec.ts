@@ -27,6 +27,23 @@ describe('Parser', function () {
             assert.strictEqual(result.amount, 2);
             assert.strictEqual(result.price, 700);
         });
+        it('should parse order mails (2023 + HTML encoding)', async function () {
+            const mail = await readFile(fixtures + '/order/de_2023_encoding.eml', 'utf-8');
+            const result = await Parser.parseMail(mail);
+
+            assert.strictEqual(result.type, 'order');
+            assert.strictEqual(result.orderId, 'kknd37xqvo3');
+            assert.deepStrictEqual(result.location, {
+                name: 'Crunchy & Soft Bakery',
+                address: 'Alte Jakobstraße 77, 10179 Berlin, Deutschland'
+            });
+
+            assert.ok(result.time.from.isSame(moment.tz('2023-10-27T10:00:00.000', 'Europe/Berlin')));
+            assert.ok(result.time.to.isSame(moment.tz('2023-10-27T11:00:00.000', 'Europe/Berlin')));
+
+            assert.strictEqual(result.amount, 1);
+            assert.strictEqual(result.price, 300);
+        });
         it('should parse order mails (2021)', async function () {
             const mail = await readFile(fixtures + '/order/de_2021.eml', 'utf-8');
             const result = await Parser.parseMail(mail);

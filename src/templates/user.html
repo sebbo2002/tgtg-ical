@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TGTG → iCal</title>
+
+    <meta name="title" content="TGTG → iCal" />
+    <meta name="description" content="Create a subscribable calendar with your TGTG pickup dates so you never miss them." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tgtg-ical.sebbo.net" />
+    <meta property="og:title" content="TGTG → iCal" />
+    <meta property="og:description" content="Create a subscribable calendar with your TGTG pickup dates so you never miss them." />
+    <meta property="og:image" content="/preview.png" />
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <span class="header__logo">&nbsp;</span>
+            <h1 class="header__title">TGTG → iCal</h1>
+        </header>
+        <main class="main">
+            <ul class="main__todos">
+                <li class="todo">
+                    <span class="todo__number">1</span>
+                    <h3 class="todo__title">Subscribe to your calendar feed</h3>
+                    <p class="todo__notes">
+                        Calendars can be subscribed to in all common calendar apps,
+                        e.g. Google Calendar, Apple Calendar, Outlook, etc.
+                    </p>
+                    <button class="button button--copy" data-copy="${CALENDAR_URL}">Copy calendar URL</button>
+                </li>
+                <li class="todo">
+                    <span class="todo__number">2</span>
+                    <h3 class="todo__title">Forward your TGTG emails</h3>
+                    <p class="todo__notes">
+                        It is best to set up a forwarding rule with your email provider so that mails from TGTG are
+                        automatically forwarded to your personal email address.
+                    </p>
+                    <button class="button button--copy" data-copy="${EMAIL_ADDRESS}">Copy email address</button>
+                </li>
+                <li class="todo">
+                    <span class="todo__number">3</span>
+                    <h3 class="todo__title">Tadaa. 🎉</h3>
+                    <p class="todo__notes">
+                        From now on your forwarded mails by TGTG will be automatically
+                        analyzed and displayed in your calendar. If not, feel free to
+                        <a href="https://github.com/sebbo2002/tgtg-ical/issues/new" target="_blank" rel="noopener noreferrer">report a bug</a> :)
+                    </p>
+                </li>
+            </ul>
+            <footer class="footer">
+                <p class="footer__text">
+                    Made by <a href="https://sebbo.net">Sebastian Pekarek</a> |
+                    Hosted on <a href="https://uberspace.de" target="_blank" rel="noopener noreferrer">Asteroids</a> |
+                    Not related to <a href="https://www.toogoodtogo.com/" target="_blank" rel="noopener noreferrer">Too Good To Go</a> |
+                    Uses <a href="https://openstreetmap.org/" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> for Geocoding |
+                    <a href="https://sebbo.net/contact" target="_blank" rel="noopener noreferrer">Impressum</a> |
+                    <a href="https://github.com/sebbo2002/tgtg-ical" target="_blank" rel="noopener noreferrer">OpenSource on GitHub</a> |
+                    <a href="https://github.com/sebbo2002/tgtg-ical/issues/new" target="_blank" rel="noopener noreferrer">Report a bug</a>
+            </footer>
+            <img src="https://p.sebbo.net/api?idsite=5&amp;rec=1" referrerpolicy="no-referrer-when-downgrade" style="border:0" alt="" />
+        </main>
+    </div>
+    <script>
+        document.querySelectorAll('.button--copy').forEach(button => {
+            button.addEventListener('click', () => {
+                navigator.clipboard.writeText(button.attributes['data-copy'].value);
+                button.classList.add('button--ok');
+
+                setTimeout(() => {
+                    button.classList.remove('button--ok');
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>

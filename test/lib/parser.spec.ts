@@ -78,7 +78,7 @@ describe('Parser', function () {
             assert.strictEqual(result.amount, 1);
             assert.strictEqual(result.price, 400);
         });
-        it('should parse time changes', async function () {
+        it('should parse time changes (2023)', async function () {
             const mail = await readFile(fixtures + '/time-changed/de_2023.eml', 'utf-8');
             const result = await Parser.parseMail(mail);
 
@@ -92,6 +92,22 @@ describe('Parser', function () {
             assert.ok(
                 result.time.to.isSame(moment.tz('2023-06-28T19:30:00.000', 'Europe/Berlin')),
                 `${result.time.to.toJSON()} === 2023-06-28T19:30:00.000`
+            );
+        });
+        it('should parse time changes (2024)', async function () {
+            const mail = await readFile(fixtures + '/time-changed/de_2024.eml', 'utf-8');
+            const result = await Parser.parseMail(mail);
+
+            assert.strictEqual(result.type, 'change');
+            assert.strictEqual(result.orderId, '8grepd07bgz');
+
+            assert.ok(
+                result.time.from.isSame(moment.tz('2024-01-10T15:30:00.000', 'Europe/Berlin')),
+                `${result.time.from.toJSON()} === 2024-01-10T15:30:00.000`
+            );
+            assert.ok(
+                result.time.to.isSame(moment.tz('2024-01-10T15:45:00.000', 'Europe/Berlin')),
+                `${result.time.to.toJSON()} === 2024-01-10T15:45:00.000`
             );
         });
         it('should detect invoice mails (2020)', async function () {

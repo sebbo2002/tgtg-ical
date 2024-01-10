@@ -338,11 +338,11 @@ export default class Parser {
 
     private static parseChangeMail(email: ParsedMail): ChangeMail {
         const matches = [
-            (email.subject || '').match(/(\w+)$/),
-            (email.html || '').match(/ am (\d{1,2}\.\d{2}\.\d{2}) zwischen (\d{1,2}:\d{2}) und (\d{1,2}:\d{2}) Uhr (\w+)+ /)
+            (email.html || '').match(/https:\/\/share.toogoodtogo.com\/receipts\/details\/(\w+)/),
+            (email.html || '').match(/(\d{1,2}\.\d{2}\.\d{2}) zwischen (\d{1,2}:\d{2}) und (\d{1,2}:\d{2})(?: Uhr)? (\w+)+ \(/)
         ];
         if(!matches[0]) {
-            throw new Error('Order ID not found in subject!');
+            throw new Error('Order ID not found!');
         }
         if(!matches[1]) {
             throw new Error('Date / Time not found!');

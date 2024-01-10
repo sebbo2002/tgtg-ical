@@ -9,6 +9,7 @@ import prisma from '../lib/db.js';
 import ServerLib from '../lib/server.js';
 import Config from '../lib/config';
 import type { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
+import Parser from '../lib/parser.js';
 
 
 class AppServer {
@@ -28,6 +29,14 @@ class AppServer {
 
         process.on('SIGINT', () => this.stop());
         process.on('SIGTERM', () => this.stop());
+
+        Parser.runCleanup()
+            .then(() => console.log('Initial cleanup succeeded.'))
+            .catch(error => {
+                console.log('Initial cleanup failed:');
+                console.error(error);
+                process.exit(1);
+            });
     }
 
     setupRoutes() {

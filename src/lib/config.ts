@@ -20,7 +20,7 @@ function src(path?: string) {
 
 let version: string | undefined;
 try {
-    const pkg = JSON.parse(readFileSync(src('./package.json'), 'utf8'));
+    const pkg = JSON.parse(readFileSync(src('../package.json'), 'utf8'));
     version = pkg.version;
 }
 catch(error) {

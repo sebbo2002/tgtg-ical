@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">95.65% </span>
+                <span class="strong">86.11% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>22/23</span>
+                <span class='fraction'>31/36</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">95.65% </span>
+                <span class="strong">86.11% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>22/23</span>
+                <span class='fraction'>31/36</span>
             </div>
         
             
@@ -86,11 +86,20 @@
 <a name='L21'></a><a href='#L21'>21</a>
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
-<a name='L24'></a><a href='#L24'>24</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -106,31 +115,61 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { init } from '@sentry/node';
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
+import { readFileSync } from 'node:fs';
 &nbsp;
 init({
     dsn: process.env.SENTRY_DSN || 'https://5e4630d58e5f4c778ce22140c53b3684@glitch.sebbo.net/9',
 });
 &nbsp;
+let dir = dirname(fileURLToPath(import.meta.url));
+if (dir.endsWith('/dist')) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    dir = resolve(dir, '..', 'src');</span>
+} else {
+    dir = resolve(dir, '..');
+}
+&nbsp;
+function src(path?: string) {
+    return resolve(dir, path<span class="branch-0 cbranch-no" title="branch not covered" > || '')</span>;
+}
+&nbsp;
+let version: string | undefined;
+try {
+    const pkg = JSON.parse(readFileSync(src('../package.json'), 'utf8'));
+    version = pkg.version;
+}
+<span class="cstat-no" title="statement not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >catch(error) {</span></span>
+<span class="cstat-no" title="statement not covered" >    console.log('Failed getting tgtg-ical version:');</span>
+<span class="cstat-no" title="statement not covered" >    console.error(error);</span>
+<span class="cstat-no" title="statement not covered" >}</span>
+&nbsp;
 export default {
     baseUrl: process.env.BASE_URL || 'https://tgtg-ical.sebbo.net',
     baseMail: process.env.BASE_MAIL || '@tgtg-ical.sebbo.net',
-    version: process.env.npm_package_version<span class="branch-0 cbranch-no" title="branch not covered" > || undefined,</span>
-    src(path?: string) {
-        let dir = dirname(fileURLToPath(import.meta.url));
-        if (dir.endsWith('/dist')) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
-<span class="cstat-no" title="statement not covered" >            dir = resolve(dir, '..', 'src');</span>
-        } else {
-            dir = resolve(dir, '..');
-        }
-&nbsp;
-        return resolve(dir, path<span class="branch-0 cbranch-no" title="branch not covered" > || '')</span>;
-    }
+    version,
+    src
 };
 &nbsp;</pre></td></tr></table></pre>
 
@@ -139,7 +178,7 @@ export default {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-01-10T16:20:22.625Z
+                at 2024-01-10T16:41:48.964Z
             </div>
         <script src="prettify.js"></script>
         <script>

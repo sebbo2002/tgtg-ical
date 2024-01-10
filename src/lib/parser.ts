@@ -53,6 +53,7 @@ export default class Parser {
             where: {
                 OR: [
                     { error: null },
+                    { version: null },
                     { version: { not: config.version } }
                 ]
             },

@@ -1,6 +1,6 @@
 import { init } from '@sentry/node';
-import { dirname, resolve } from 'path';
-import { fileURLToPath } from 'url';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { readFileSync } from 'node:fs';
 
 init({

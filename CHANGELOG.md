@@ -1,3 +1,18 @@
+# [1.1.0](https://github.com/sebbo2002/tgtg-ical/compare/v1.0.2...v1.1.0) (2024-01-10)
+
+
+### Bug Fixes
+
+* **Config:** Get tgtg-ical version from package.json directly ([e3fa8d7](https://github.com/sebbo2002/tgtg-ical/commit/e3fa8d73e3bbca396e093adccad3ed1c5b904606))
+* Fix test in health endpoint ([05f650a](https://github.com/sebbo2002/tgtg-ical/commit/05f650ab6c48c3ec978a6fb70305e6ca6a15cdf5))
+* **Parser:** Also recheck if version is not set ([e007d5e](https://github.com/sebbo2002/tgtg-ical/commit/e007d5e7d00b3078bbe8bdd79939b34d67ae637b))
+* **Parser:** time-changed parsing ([add3622](https://github.com/sebbo2002/tgtg-ical/commit/add3622cd144717a0437adb257fd4c2f334ca6bd))
+
+
+### Features
+
+* Run cleanup once after server start ([de3ae77](https://github.com/sebbo2002/tgtg-ical/commit/de3ae7790be3e39daf6a6930b79aa4a00907e506))
+
 ## [1.0.2](https://github.com/sebbo2002/tgtg-ical/compare/v1.0.1...v1.0.2) (2023-11-23)
 
 

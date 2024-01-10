@@ -7,8 +7,9 @@ import {Server} from 'http';
 
 import prisma from '../lib/db.js';
 import ServerLib from '../lib/server.js';
-import Config from '../lib/config';
+import Config from '../lib/config.js';
 import type { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
+import Parser from '../lib/parser.js';
 
 
 class AppServer {
@@ -25,9 +26,18 @@ class AppServer {
 
         this.setupRoutes();
         this.server = this.app.listen(process.env.PORT || 8080);
+        console.log(`tgtg-ical v${Config.version} listening on port ${process.env.PORT || 8080}`);
 
         process.on('SIGINT', () => this.stop());
         process.on('SIGTERM', () => this.stop());
+
+        Parser.runCleanup()
+            .then(() => console.log('Initial cleanup succeeded.'))
+            .catch(error => {
+                console.log('Initial cleanup failed:');
+                console.error(error);
+                process.exit(1);
+            });
     }
 
     setupRoutes() {

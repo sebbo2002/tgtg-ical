@@ -1,16 +1,4 @@
-FROM node:lts-alpine@sha256:cb2301e2c5fe3165ba2616591efe53b4b6223849ac0871c138f56d5f7ae8be4b as build-container
-
-WORKDIR "/app"
-
-COPY package*.json "/app/"
-RUN npm ci --verbose
-
-COPY . "/app/"
-RUN npm run build && \
-    rm -rf ./.github ./src ./test ./node_modules
-
-
-FROM node:lts-alpine@sha256:cb2301e2c5fe3165ba2616591efe53b4b6223849ac0871c138f56d5f7ae8be4b
+FROM node:lts-alpine@sha256:9e38d3d4117da74a643f67041c83914480b335c3bd44d37ccf5b5ad86cd715d1 as build-container
 ARG NODE_ENV=production
 ENV NODE_ENV=$NODE_ENV
 WORKDIR "/app"
@@ -20,10 +8,10 @@ RUN apk add --no-cache --update dumb-init && \
     ln -s /app/dist/bin/inhale-mail.js /usr/local/bin/inhale-mail && \
     ln -s /app/dist/bin/start.js /usr/local/bin/start
 
-COPY --from=build-container /app/package*.json "/app/"
+COPY package*.json "/app/"
 RUN npm ci --only-production
 
-COPY --from=build-container "/app" "/app"
+COPY . "/app"
 USER node
 
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]

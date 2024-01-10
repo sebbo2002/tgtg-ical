@@ -157,7 +157,7 @@ export default class ServerLib {
         const c = await prisma.mail.count({
             where: {
                 createdAt: {
-                    gte: moment().subtract(30, 'minutes').toDate()
+                    lt: moment().subtract(30, 'minutes').toDate()
                 }
             }
         });

@@ -1,3 +1,5 @@
+## [1.1.1](https://github.com/sebbo2002/tgtg-ical/compare/v1.1.0...v1.1.1) (2024-02-21)
+
 # [1.1.0](https://github.com/sebbo2002/tgtg-ical/compare/v1.0.2...v1.1.0) (2024-01-10)
 
 

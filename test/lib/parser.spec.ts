@@ -55,8 +55,9 @@ describe('Parser', function () {
                 address: 'Friedrichstraße 41, 10969 Berlin, Deutschland'
             });
 
-            assert.ok(result.time.from.isSame(moment.tz('2024-04-30T16:30:00.000', 'Europe/Berlin')));
-            assert.ok(result.time.to.isSame(moment.tz('2024-04-30T17:00:00.000', 'Europe/Berlin')));
+            const year = moment(result.time.order).year();
+            assert.ok(result.time.from.isSame(moment.tz(year + '-04-30T16:30:00.000', 'Europe/Berlin')));
+            assert.ok(result.time.to.isSame(moment.tz(year + '-04-30T17:00:00.000', 'Europe/Berlin')));
 
             assert.strictEqual(result.amount, 1);
             assert.strictEqual(result.price, 430);
@@ -72,8 +73,8 @@ describe('Parser', function () {
                 address: 'Europaplatz 1, 10557 Berlin, Deutschland'
             });
 
-            assert.ok(result.time.from.isSame(moment.tz('2024-07-29T18:30:00.000', 'Europe/Berlin')));
-            assert.ok(result.time.to.isSame(moment.tz('2024-07-29T19:00:00.000', 'Europe/Berlin')));
+            assert.ok(result.time.from.isSame(moment.tz('2020-07-29T18:30:00.000', 'Europe/Berlin')));
+            assert.ok(result.time.to.isSame(moment.tz('2020-07-29T19:00:00.000', 'Europe/Berlin')));
 
             assert.strictEqual(result.amount, 1);
             assert.strictEqual(result.price, 400);

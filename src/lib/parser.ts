@@ -287,6 +287,7 @@ export default class Parser {
             timezone = 'MET';
         }
 
+        const now = moment(email.date);
         let from: moment.Moment | undefined;
         let to: moment.Moment | undefined;
 
@@ -295,10 +296,11 @@ export default class Parser {
             to = moment.tz(matches[2][1] + ' ' + matches[2][3], 'DD.MM.YY HH:mm', timezone);
         }
         if(matches[3]) {
-            from = moment.tz(matches[3][1] + ' ' + matches[3][2], 'DD.MM HH:mm', timezone);
-            to = moment.tz(matches[3][1] + ' ' + matches[3][3], 'DD.MM HH:mm', timezone);
+            const year = now.year();
+            from = moment.tz(matches[3][1] + '.' + year + ' ' + matches[3][2], 'DD.MM.YYYY HH:mm', timezone);
+            to = moment.tz(matches[3][1] + '.' + year + ' ' + matches[3][3], 'DD.MM.YYYY HH:mm', timezone);
 
-            if(from.isBefore(moment())) {
+            if(from.isBefore(now)) {
                 from.add(1, 'year');
             }
             if(to.isBefore(from)) {
@@ -328,7 +330,7 @@ export default class Parser {
                 address: he.decode(matches[2] ? matches[2][5].trim() : matches[3][4].trim())
             },
             time: {
-                order: moment(email.date),
+                order: now,
                 from,
                 to
             },

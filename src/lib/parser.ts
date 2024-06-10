@@ -1,5 +1,5 @@
 import { Mail, User, Location } from '@prisma/client';
-import { startTransaction, captureException } from '@sentry/node';
+import { captureException } from '@sentry/node';
 import { ParsedMail, simpleParser } from 'mailparser';
 import he from 'he';
 import prisma from './db.js';
@@ -118,12 +118,6 @@ export default class Parser {
     }
 
     public static async handleMail(mail: Mail) {
-        // @todo Sentry Transaction (https://docs.sentry.io/platforms/node/#verify)
-        const transaction = startTransaction({
-            op: 'mail',
-            name: 'parse mail'
-        });
-
         try {
             const parsed = await this.parseMail(mail.raw);
             if(parsed) {
@@ -149,9 +143,6 @@ export default class Parser {
                     version: config.version
                 }
             });
-        }
-        finally {
-            transaction.finish();
         }
     }
 

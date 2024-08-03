@@ -96,7 +96,7 @@ class AppServer {
     }
 
     handleError(error: PrismaClientKnownRequestError | unknown, res: Response) {
-        if(typeof error === 'object' && 'code' in error && error.code === 'P2025') {
+        if(error && typeof error === 'object' && 'code' in error && error.code === 'P2025') {
             res.sendStatus(404);
             return;
         }

@@ -32,7 +32,7 @@ Received: from schuster.uberspace.de (schuster.uberspace.de [185.26.156.172])
 Received: (qmail 8653 invoked by uid 1212); 10 Jan 2024 05:10:34 -0000
 Delivered-To: ********@schuster.uberspace.de
 Received: (qmail 8617 invoked by uid 1212); 10 Jan 2024 05:10:34 -0000
-Delivered-To: ********@e.sebbo.net
+Delivered-To: ********@tgtg-ical.sebbo.net
 Received: (qmail 8613 invoked by uid 990); 10 Jan 2024 05:10:34 -0000
 Received: from sc-ord-mta117.mtasv.net (sc-ord-mta117.mtasv.net [50.31.156.117])
 	by schuster.uberspace.de (Haraka/3.0.1) with ESMTPS id AFCE1121-0326-47D9-98C6-04BA80797647.1
@@ -47,7 +47,7 @@ DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=pm20231108; d=pm.mtasv.net
  b=6MYSw0gG2hwgda2eDoYkF/yLC64S61E9us8uLbQUtsoxuIo7E56cja5LlpV4cKUaQxT3CbMSqKsY
    wqcoZHZ/slPcnpv14rj+ZE4Y1JqQtvve3G985O90ahlBqQL31Ck6PDCzZOjUiYXHW6hXdecWTgAF
    5xUrfuEkBZ6OQitDeE0=
-Received: by sc-ord-mta117.mtasv.net id hjojbu34o8gr for <********@e.sebbo.net>; Wed, 10 Jan 2024 00:10:22 -0500 (envelope-from <pm_bounces@pm.toogoodtogo.com>)
+Received: by sc-ord-mta117.mtasv.net id hjojbu34o8gr for <********@tgtg-ical.sebbo.net>; Wed, 10 Jan 2024 00:10:22 -0500 (envelope-from <pm_bounces@pm.toogoodtogo.com>)
 X-PM-IP: 50.31.156.117
 X-IADB-IP: 50.31.156.117
 X-IADB-IP-REVERSE: 117.156.31.50
@@ -64,7 +64,7 @@ Date: Wed, 10 Jan 2024 05:10:22 +0000
 Subject: Abholzeit =?utf-8?b?Z2XDpG5kZXJ0IOKAkw==?= Backlover
 Message-Id: <8abc8fbd-3c83-49fd-9d10-cdea6de80c87@mtasv.net>
 Reply-To: Too Good To Go <no-reply@toogoodtogo.com>
-To: ********@e.sebbo.net
+To: ********@tgtg-ical.sebbo.net
 Feedback-ID: s2291855-Y29sbGVjdGlvbl90aW1lX2NoYW5nZWQ=:s2291855:a119677:postmark
 X-Complaints-To: abuse@postmarkapp.com
 X-PM-Message-Id: 8abc8fbd-3c83-49fd-9d10-cdea6de80c87

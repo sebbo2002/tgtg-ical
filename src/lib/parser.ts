@@ -155,17 +155,18 @@ export default class Parser {
             skipTextLinks: true
         });
 
-        if(!email.from.value[0].address.endsWith('toogoodtogo.com')) {
+        if(!email.from?.value[0].address?.endsWith('toogoodtogo.com')) {
             throw new Error('Not a TGTG email!');
         }
 
         let to: string | undefined = (Array.isArray(email.to) ? email.to : [email.to])
-            .map(to => to.value)
+            .map(to => to?.value)
             .flat()
+            .filter(address => !!address)
             .map(address => address.address)
-            .find(address => address.endsWith(baseMailPostfix));
+            .find(address => address?.endsWith(baseMailPostfix));
 
-        if(!to) {
+        if (!to) {
             const received = email.headers.get('received');
             const regexp = new RegExp(`([\\w-]+${Config.baseMail})`, 'i');;
             if(Array.isArray(received)) {
@@ -176,6 +177,9 @@ export default class Parser {
                     }
                 });
             }
+        }
+        if (!to) {
+            throw new Error('No recipient found!');
         }
 
         // Order confirmation
@@ -250,8 +254,8 @@ export default class Parser {
     private static parseOrderMail(email: ParsedMail): OrderMail {
         const html = email.html || '';
         const matches = [
-            html.match(/\/order\/([^\/]+)\//),
-            html.match(/Wir bestätigen hiermit deine Bestellung bei ([^\(\.]+)/),
+            html.match(/\/order\/([^/]+)\//),
+            html.match(/Wir bestätigen hiermit deine Bestellung bei ([^(.]+)/),
             html.match(/<span>Du kannst deine Bestellung am (\d{1,2}\.\d{2}\.\d{2}) zwischen (\d{1,2}:\d{2}) und (\d{1,2}:\d{2}) Uhr (\w+)[^:]+: (.+).<\/span><\/div>/),
             html.match(/<span>Du kannst deine Bestellung zwischen (\d{1,2}\.\d{1,2}), (\d{1,2}:\d{2}) und (\d{1,2}:\d{2})[^:]+: (.+).<\/span><\/div>/),
             html.match(/Anzahl: (\d+)/),
@@ -299,7 +303,7 @@ export default class Parser {
             }
         }
 
-        if(!matches[2] && !matches[3]) {
+        if((!matches[2] && !matches[3]) || !from || !to) {
             throw new Error('Date, time and address not found (1)!');
         }
 
@@ -318,7 +322,15 @@ export default class Parser {
             orderId: matches[0][1].trim(),
             location: {
                 name: he.decode(matches[1][1].trim()),
-                address: he.decode(matches[2] ? matches[2][5].trim() : matches[3][4].trim())
+                address: he.decode(
+                    matches[2]
+                        ? matches[2][5].trim()
+                        : (
+                            matches[3]
+                                ? matches[3][4].trim()
+                                : ''
+                        )
+                )
             },
             time: {
                 order: now,

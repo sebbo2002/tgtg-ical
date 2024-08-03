@@ -11,6 +11,8 @@ import Config from './config.js';
 export default class ServerLib {
     static async createUser() {
         let user: User | undefined;
+
+        // eslint-disable-next-line no-constant-condition
         for (let c = 0; true; c++) {
             const prefix = this.generatePrefix(c);
             try {
@@ -24,7 +26,7 @@ export default class ServerLib {
                 }
             }
             catch(error) {
-                if(error.code === 'P2002') {
+                if(error && typeof error === 'object' && 'code' in error && error.code === 'P2002') {
                     continue;
                 }
 

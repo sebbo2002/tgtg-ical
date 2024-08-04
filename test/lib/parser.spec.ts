@@ -2,7 +2,7 @@
 
 import * as assert from 'assert';
 import { readFile } from 'fs/promises';
-import moment from 'moment-timezone/builds/moment-timezone-with-data.js';
+import moment from 'moment-timezone';
 import Parser from '../../src/lib/parser.js';
 import Config from '../../src/lib/config.js';
 
@@ -14,6 +14,7 @@ describe('Parser', function () {
             const mail = await readFile(fixtures + '/order/de_2023.eml', 'utf-8');
             const result = await Parser.parseMail(mail);
 
+            assert.ok(result);
             assert.strictEqual(result.type, 'order');
             assert.strictEqual(result.orderId, 'rio3sec8wgb');
             assert.deepStrictEqual(result.location, {
@@ -31,6 +32,7 @@ describe('Parser', function () {
             const mail = await readFile(fixtures + '/order/de_2023_encoding.eml', 'utf-8');
             const result = await Parser.parseMail(mail);
 
+            assert.ok(result);
             assert.strictEqual(result.type, 'order');
             assert.strictEqual(result.orderId, 'kknd37xqvo3');
             assert.deepStrictEqual(result.location, {
@@ -48,6 +50,7 @@ describe('Parser', function () {
             const mail = await readFile(fixtures + '/order/de_2021.eml', 'utf-8');
             const result = await Parser.parseMail(mail);
 
+            assert.ok(result);
             assert.strictEqual(result.type, 'order');
             assert.strictEqual(result.orderId, 'dfaxqeu6f8d');
             assert.deepStrictEqual(result.location, {
@@ -66,6 +69,7 @@ describe('Parser', function () {
             const mail = await readFile(fixtures + '/order/de_2020.eml', 'utf-8');
             const result = await Parser.parseMail(mail);
 
+            assert.ok(result);
             assert.strictEqual(result.type, 'order');
             assert.strictEqual(result.orderId, 'too38e9h7io');
             assert.deepStrictEqual(result.location, {
@@ -83,6 +87,7 @@ describe('Parser', function () {
             const mail = await readFile(fixtures + '/time-changed/de_2023.eml', 'utf-8');
             const result = await Parser.parseMail(mail);
 
+            assert.ok(result);
             assert.strictEqual(result.type, 'change');
             assert.strictEqual(result.orderId, 'ecqpn6ux8sd');
 
@@ -99,6 +104,7 @@ describe('Parser', function () {
             const mail = await readFile(fixtures + '/time-changed/de_2024.eml', 'utf-8');
             const result = await Parser.parseMail(mail);
 
+            assert.ok(result);
             assert.strictEqual(result.type, 'change');
             assert.strictEqual(result.orderId, '8grepd07bgz');
 
@@ -114,6 +120,8 @@ describe('Parser', function () {
         it('should detect invoice mails (2020)', async function () {
             const mail = await readFile(fixtures + '/invoice/de_2020.eml', 'utf-8');
             const result = await Parser.parseMail(mail);
+
+            assert.ok(result);
             assert.strictEqual(result.type, 'invoice');
             assert.strictEqual(result.to, '**********@tgtg-ical.sebbo.net');
             assert.strictEqual(result.orderId, 'too38e9h7io');
@@ -122,6 +130,8 @@ describe('Parser', function () {
         it('should detect invoice mails (2021)', async function () {
             const mail = await readFile(fixtures + '/invoice/de_2021.eml', 'utf-8');
             const result = await Parser.parseMail(mail);
+
+            assert.ok(result);
             assert.strictEqual(result.type, 'invoice');
             assert.strictEqual(result.to, '**********@tgtg-ical.sebbo.net');
             assert.strictEqual(result.orderId, 'dfaxqeu6f8d');
@@ -130,6 +140,8 @@ describe('Parser', function () {
         it('should detect invoice mails (2023)', async function () {
             const mail = await readFile(fixtures + '/invoice/de_2023.eml', 'utf-8');
             const result = await Parser.parseMail(mail);
+
+            assert.ok(result);
             assert.strictEqual(result.type, 'invoice');
             assert.strictEqual(result.to, '**********@tgtg-ical.sebbo.net');
             assert.strictEqual(result.orderId, 'rio3sec8wgb');
@@ -138,6 +150,8 @@ describe('Parser', function () {
         it('should detect cancellation mails (1)', async function () {
             const mail = await readFile(fixtures + '/cancellation/de_1.eml', 'utf-8');
             const result = await Parser.parseMail(mail);
+
+            assert.ok(result);
             assert.strictEqual(result.type, 'cancel');
             assert.strictEqual(result.to, '**********@tgtg-ical.sebbo.net');
             assert.strictEqual(result.orderId, 'gd3sypjntuz');
@@ -146,6 +160,8 @@ describe('Parser', function () {
         it('should detect cancellation mails (2)', async function () {
             const mail = await readFile(fixtures + '/cancellation/de_2.eml', 'utf-8');
             const result = await Parser.parseMail(mail);
+
+            assert.ok(result);
             assert.strictEqual(result.type, 'cancel');
             assert.strictEqual(result.to, '**********@tgtg-ical.sebbo.net');
             assert.strictEqual(result.orderId, 'q3uxig9diky');

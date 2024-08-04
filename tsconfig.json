@@ -1,11 +1,16 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "compilerOptions": {
+        "allowImportingTsExtensions": true,
         "declaration": true,
         "esModuleInterop": true,
-        "module": "es2022",
-        "moduleResolution": "node",
+        "lib": ["es2023"],
+        "module": "node16",
+        "moduleResolution": "node16",
         "outDir": "./dist",
+        "skipLibCheck": true,
         "sourceMap": true,
+        "strict": true,
         "target": "es2022"
     },
     "exclude": [

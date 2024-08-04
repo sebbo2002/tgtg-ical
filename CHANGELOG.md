@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/sebbo2002/tgtg-ical/compare/v1.1.6...v1.2.0) (2024-08-04)
+
+
+### Features
+
+* Replace Matomo tracking code with the Umami code ([0f9feb3](https://github.com/sebbo2002/tgtg-ical/commit/0f9feb324d4484371ced0982eab7da0ab1cbe601))
+
 ## [1.1.6](https://github.com/sebbo2002/tgtg-ical/compare/v1.1.5...v1.1.6) (2024-06-13)
 
 ## [1.1.5](https://github.com/sebbo2002/tgtg-ical/compare/v1.1.4...v1.1.5) (2024-05-03)

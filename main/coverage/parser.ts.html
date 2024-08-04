@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">47.02% </span>
+                <span class="strong">46.15% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>245/521</span>
+                <span class='fraction'>246/533</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">52.08% </span>
+                <span class="strong">48.97% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>25/48</span>
+                <span class='fraction'>24/49</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">47.02% </span>
+                <span class="strong">46.15% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>245/521</span>
+                <span class='fraction'>246/533</span>
             </div>
         
             
@@ -584,7 +584,19 @@
 <a name='L519'></a><a href='#L519'>519</a>
 <a name='L520'></a><a href='#L520'>520</a>
 <a name='L521'></a><a href='#L521'>521</a>
-<a name='L522'></a><a href='#L522'>522</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L522'></a><a href='#L522'>522</a>
+<a name='L523'></a><a href='#L523'>523</a>
+<a name='L524'></a><a href='#L524'>524</a>
+<a name='L525'></a><a href='#L525'>525</a>
+<a name='L526'></a><a href='#L526'>526</a>
+<a name='L527'></a><a href='#L527'>527</a>
+<a name='L528'></a><a href='#L528'>528</a>
+<a name='L529'></a><a href='#L529'>529</a>
+<a name='L530'></a><a href='#L530'>530</a>
+<a name='L531'></a><a href='#L531'>531</a>
+<a name='L532'></a><a href='#L532'>532</a>
+<a name='L533'></a><a href='#L533'>533</a>
+<a name='L534'></a><a href='#L534'>534</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -752,17 +764,21 @@
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">11x</span>
@@ -903,6 +919,14 @@
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
@@ -1262,28 +1286,32 @@ export default class Parser {
             skipTextLinks: true
         });
 &nbsp;
-        if(!email.from.value[0].address.endsWith('toogoodtogo.com')) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
+        if(!email.from?.value[0].address?.endsWith('toogoodtogo.com')) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
 <span class="cstat-no" title="statement not covered" >            throw new Error('Not a TGTG email!');</span>
 <span class="cstat-no" title="statement not covered" >        }</span>
 &nbsp;
         let to: string | undefined = (Array.isArray(email.to) <span class="branch-0 cbranch-no" title="branch not covered" >? email.to </span>: [email.to])
-            .map(to =&gt; to.value)
+            .map(to =&gt; to?.value)
             .flat()
+            .filter(address =&gt; !!address)
             .map(address =&gt; address.address)
-            .find(address =&gt; address.endsWith(baseMailPostfix));
+            .find(address =&gt; address?.endsWith(baseMailPostfix));
 &nbsp;
-        if(!to) {
-            const received = email.headers.get('received');
-            const regexp = new RegExp(`([\\w-]+${Config.baseMail})`, 'i');;
-            if(Array.isArray(received)) {
-                received.forEach(r =&gt; {
-                    const match = r.match(regexp);
-                    if(match) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
+        if (!to) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >            const received = email.headers.get('received');</span>
+<span class="cstat-no" title="statement not covered" >            const regexp = new RegExp(`([\\w-]+${Config.baseMail})`, 'i');;</span>
+<span class="cstat-no" title="statement not covered" >            if(Array.isArray(received)) {</span>
+<span class="cstat-no" title="statement not covered" >                received.forEach(r =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                    const match = r.match(regexp);</span>
+<span class="cstat-no" title="statement not covered" >                    if(match) {</span>
 <span class="cstat-no" title="statement not covered" >                        to = match[1];</span>
 <span class="cstat-no" title="statement not covered" >                    }</span>
-                });
-            }
-        }
+<span class="cstat-no" title="statement not covered" >                });</span>
+<span class="cstat-no" title="statement not covered" >            }</span>
+<span class="cstat-no" title="statement not covered" >        }</span>
+        if (!to) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >            throw new Error('No recipient found!');</span>
+<span class="cstat-no" title="statement not covered" >        }</span>
 &nbsp;
         // Order confirmation
         if(email.headers.get('x-pm-tag') === 'consumer_order_confirm') {
@@ -1357,8 +1385,8 @@ export default class Parser {
     private static parseOrderMail(email: ParsedMail): OrderMail {
         const html = email.html<span class="branch-0 cbranch-no" title="branch not covered" > || '';</span>
         const matches = [
-            html.match(/\/order\/([^\/]+)\//),
-            html.match(/Wir bestätigen hiermit deine Bestellung bei ([^\(\.]+)/),
+            html.match(/\/order\/([^/]+)\//),
+            html.match(/Wir bestätigen hiermit deine Bestellung bei ([^(.]+)/),
             html.match(/&lt;span&gt;Du kannst deine Bestellung am (\d{1,2}\.\d{2}\.\d{2}) zwischen (\d{1,2}:\d{2}) und (\d{1,2}:\d{2}) Uhr (\w+)[^:]+: (.+).&lt;\/span&gt;&lt;\/div&gt;/),
             html.match(/&lt;span&gt;Du kannst deine Bestellung zwischen (\d{1,2}\.\d{1,2}), (\d{1,2}:\d{2}) und (\d{1,2}:\d{2})[^:]+: (.+).&lt;\/span&gt;&lt;\/div&gt;/),
             html.match(/Anzahl: (\d+)/),
@@ -1406,7 +1434,7 @@ export default class Parser {
 <span class="cstat-no" title="statement not covered" >            }</span>
         }
 &nbsp;
-        if(!matches[2] &amp;&amp; !matches[3]) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
+        if((!matches[2] &amp;&amp; !matches[3]) || !from || !to) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
 <span class="cstat-no" title="statement not covered" >            throw new Error('Date, time and address not found (1)!');</span>
 <span class="cstat-no" title="statement not covered" >        }</span>
 &nbsp;
@@ -1425,7 +1453,15 @@ export default class Parser {
             orderId: matches[0][1].trim(),
             location: {
                 name: he.decode(matches[1][1].trim()),
-                address: he.decode(matches[2] ? matches[2][5].trim() : matches[3][4].trim())
+                address: he.decode(
+                    matches[2]
+                        ? matches[2][5].trim()
+                        : (
+                            matches[3]
+                                ? matches[3][4].trim()
+<span class="branch-0 cbranch-no" title="branch not covered" >                                : ''</span>
+                        )
+                )
             },
             time: {
                 order: now,
@@ -1633,7 +1669,7 @@ export default class Parser {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-06-13T16:06:06.720Z
+                at 2024-08-04T09:30:31.273Z
             </div>
         <script src="prettify.js"></script>
         <script>

@@ -1,41 +1,54 @@
 {
   "author": "Sebastian Pekarek <mail@sebbo.net>",
   "bin": {
-    "test-cli": "./dist/bin/cli.js"
+    "tgtg-ical-inhale-mail": "./dist/bin/inhale-mail.js",
+    "tgtg-ical-server": "./dist/start.js"
   },
   "bugs": {
-    "url": "https://github.com/sebbo2002/js-template/issues"
+    "url": "https://github.com/sebbo2002/tgtg-ical/issues"
   },
   "dependencies": {
-    "express": "^4.19.2"
+    "@criblinc/docker-names": "^1.2.1",
+    "@prisma/client": "^5.18.0",
+    "@sentry/node": "^8.25.0",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.19.2",
+    "he": "^1.2.0",
+    "ical-generator": "^7.2.0",
+    "mailparser": "^3.7.1",
+    "moment-timezone": "^0.5.45"
   },
-  "description": "A template that I use to start new projects and services.",
+  "description": "A small server that receives mails from TGTG, parses them and generates an iCal feed from them.",
   "devDependencies": {
-    "@eslint/js": "^9.6.0",
+    "@eslint/js": "^9.9.0",
     "@qiwi/semantic-release-gh-pages-plugin": "^5.2.12",
-    "@sebbo2002/semantic-release-docker": "^2.1.0",
+    "@sebbo2002/semantic-release-docker": "^4.0.3",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/exec": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/npm": "^12.0.1",
+    "@types/cookie-parser": "^1.4.7",
     "@types/eslint__js": "^8.42.3",
     "@types/express": "^4.17.21",
+    "@types/he": "^1.2.3",
+    "@types/mailparser": "^3.4.4",
     "@types/mocha": "^10.0.7",
-    "@types/node": "^20.14.10",
+    "@types/node": "^22.1.0",
     "c8": "^10.1.2",
-    "eslint": "^9.6.0",
+    "eslint": "^9.8.0",
     "eslint-plugin-jsonc": "^2.16.0",
     "esm": "^3.2.25",
     "license-checker": "^25.0.1",
-    "mocha": "^10.6.0",
+    "mocha": "^10.7.3",
     "mochawesome": "^7.1.3",
+    "prisma": "^5.18.0",
     "semantic-release-license": "^1.0.3",
     "source-map-support": "^0.5.21",
     "tsup": "^8.1.0",
     "tsx": "^4.16.2",
     "typedoc": "^0.26.3",
-    "typescript": "^5.5.3",
-    "typescript-eslint": "^8.0.0-alpha.41"
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.0.0-alpha.62"
   },
   "engines": {
     "node": "18 || 20 || >=22.0.0"
@@ -45,21 +58,26 @@
     "require": "./dist/lib/index.cjs"
   },
   "files": [
-    "/dist"
+    "/dist",
+    "/src/assets",
+    "/src/prisma",
+    "/src/templates"
   ],
-  "homepage": "https://github.com/sebbo2002/js-template#readme",
+  "homepage": "https://github.com/sebbo2002/tgtg-ical#readme",
   "license": "MIT",
-  "main": "./dist/lib/index.cjs",
-  "module": "./dist/lib/index.js",
-  "name": "@sebbo2002/js-template-test",
+  "name": "@sebbo2002/tgtg-ical",
+  "prisma": {
+    "schema": "./src/prisma/schema.prisma"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sebbo2002/js-template.git"
+    "url": "git+https://github.com/sebbo2002/tgtg-ical.git"
   },
   "scripts": {
-    "build": "tsup && cp ./dist/lib/index.d.ts ./dist/lib/index.d.cts",
+    "build": "tsup",
     "build-all": "./.github/workflows/build.sh",
     "coverage": "c8 mocha",
+    "deploy": "./.github/workflows/deploy.sh",
     "develop": "tsx src/bin/start.ts",
     "license-check": "license-checker --production --summary",
     "lint": "eslint .",
@@ -67,5 +85,5 @@
     "test": "mocha"
   },
   "type": "module",
-  "version": "1.0.0"
+  "version": "1.0.0-develop.0"
 }

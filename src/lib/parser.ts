@@ -1,6 +1,6 @@
-import { Mail, User, Location } from '@prisma/client';
+import type { Mail, User, Location } from '@prisma/client';
 import { captureException } from '@sentry/node';
-import { ParsedMail, simpleParser } from 'mailparser';
+import { type ParsedMail, simpleParser } from 'mailparser';
 import he from 'he';
 import prisma from './db.js';
 import config from './config.js';

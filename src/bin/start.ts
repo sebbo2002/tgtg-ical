@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 
-import express, { Express, Response } from 'express';
+import express, { type Express, type Response } from 'express';
 import cookieParser from 'cookie-parser';
 import {Server} from 'http';
 

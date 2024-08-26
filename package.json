@@ -10,7 +10,7 @@
   "dependencies": {
     "@criblinc/docker-names": "^1.2.1",
     "@prisma/client": "^5.18.0",
-    "@sentry/node": "^8.25.0",
+    "@sentry/node": "^8.26.0",
     "cookie-parser": "^1.4.6",
     "express": "^4.19.2",
     "he": "^1.2.0",
@@ -33,9 +33,9 @@
     "@types/he": "^1.2.3",
     "@types/mailparser": "^3.4.4",
     "@types/mocha": "^10.0.7",
-    "@types/node": "^22.1.0",
+    "@types/node": "^22.5.0",
     "c8": "^10.1.2",
-    "eslint": "^9.8.0",
+    "eslint": "^9.9.0",
     "eslint-plugin-jsonc": "^2.16.0",
     "esm": "^3.2.25",
     "license-checker": "^25.0.1",
@@ -44,14 +44,18 @@
     "prisma": "^5.18.0",
     "semantic-release-license": "^1.0.3",
     "source-map-support": "^0.5.21",
-    "ts-node": "^10.9.2",
     "tsup": "^8.1.0",
-    "typedoc": "^0.26.3",
+    "tsx": "^4.16.2",
+    "typedoc": "^0.26.6",
     "typescript": "^5.5.4",
-    "typescript-eslint": "^8.0.0-alpha.62"
+    "typescript-eslint": "^8.2.0"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": "18 || 20 || >=22.0.0"
+  },
+  "exports": {
+    "import": "./dist/lib/index.js",
+    "require": "./dist/lib/index.cjs"
   },
   "files": [
     "/dist",
@@ -74,7 +78,7 @@
     "build-all": "./.github/workflows/build.sh",
     "coverage": "c8 mocha",
     "deploy": "./.github/workflows/deploy.sh",
-    "develop": "TS_NODE_TRANSPILE_ONLY=true node --no-warnings --enable-source-maps --loader ts-node/esm src/bin/start.ts",
+    "develop": "tsx src/bin/start.ts",
     "license-check": "license-checker --production --summary",
     "lint": "eslint .",
     "start": "node ./dist/bin/start.js",

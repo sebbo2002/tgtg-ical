@@ -12,7 +12,7 @@
     "@prisma/client": "^5.19.1",
     "@sentry/node": "^8.26.0",
     "cookie-parser": "^1.4.6",
-    "express": "^4.19.2",
+    "express": "^4.20.0",
     "he": "^1.2.0",
     "ical-generator": "^8.0.0",
     "mailparser": "^3.7.1",

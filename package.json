@@ -41,7 +41,7 @@
     "license-checker": "^25.0.1",
     "mocha": "^10.7.3",
     "mochawesome": "^7.1.3",
-    "prisma": "^5.19.1",
+    "prisma": "^5.20.0",
     "semantic-release-license": "^1.0.3",
     "source-map-support": "^0.5.21",
     "tsup": "^8.3.0",

@@ -171,7 +171,8 @@ export default class Parser {
             const regexp = new RegExp(`([\\w-]+${Config.baseMail})`, 'i');;
             if(Array.isArray(received)) {
                 received.forEach(r => {
-                    const match = r.match(regexp);
+                    const s = typeof r === 'string' ? r : r.value;
+                    const match = s.match(regexp);
                     if(match) {
                         to = match[1];
                     }
@@ -258,8 +259,13 @@ export default class Parser {
             html.match(/Wir bestätigen hiermit deine Bestellung bei ([^(.]+)/),
             html.match(/<span>Du kannst deine Bestellung am (\d{1,2}\.\d{2}\.\d{2}) zwischen (\d{1,2}:\d{2}) und (\d{1,2}:\d{2}) Uhr (\w+)[^:]+: (.+).<\/span><\/div>/),
             html.match(/<span>Du kannst deine Bestellung zwischen (\d{1,2}\.\d{1,2}), (\d{1,2}:\d{2}) und (\d{1,2}:\d{2})[^:]+: (.+).<\/span><\/div>/),
+            html.match(/<b>Datum:<\/b>\s+<span>(\d{1,2}\.\d{2}\.\d{2})<\/span>/),
+            html.match(/Abholzeit:<\/b>\s+<span>(\d{1,2}:\d{2}) - (\d{1,2}:\d{2}) (\w+)/),
             html.match(/Anzahl: (\d+)/),
-            html.match(/Gesamtpreis: ([\d,.]+)[^\d,.]/)
+            html.match(/Anzahl:<\/b>\s+<span>(\d+)/),
+            html.match(/Gesamtpreis: ([\d,.]+)[^\d,.]/),
+            html.match(/Gesamtpreis:<\/b>\s+<span>([\d,.]+)[^\d,.]/),
+            html.match(/Standort:<\/b>\s+<span>([^<]+)/)
         ];
         if(!matches[0]) {
             throw new Error('Order ID not found!');
@@ -267,17 +273,17 @@ export default class Parser {
         if(!matches[1]) {
             throw new Error('Location name not found!');
         }
-        if(!matches[2] && !matches[3]) {
+        if(!matches[2] && !matches[3] && !(matches[4] && matches[5])) {
             throw new Error('Date, time and address not found (1)!');
         }
-        if(!matches[4]) {
-            throw new Error('Amount not found!');
-        }
-        if(!matches[5]) {
-            throw new Error('Price not found!');
-        }
 
-        let timezone = matches[2] ? matches[2][4] : 'MET';
+        let timezone = 'MET';
+        if (matches[2]) {
+            timezone = matches[2][4];
+        }
+        if (matches[5]) {
+            timezone = matches[5][3];
+        }
         if(timezone === 'MEZ') {
             timezone = 'MET';
         }
@@ -285,15 +291,18 @@ export default class Parser {
         const now = moment(email.date);
         let from: moment.Moment | undefined;
         let to: moment.Moment | undefined;
+        let address: string | undefined;
 
         if(matches[2]) {
             from = moment.tz(matches[2][1] + ' ' + matches[2][2], 'DD.MM.YY HH:mm', timezone);
             to = moment.tz(matches[2][1] + ' ' + matches[2][3], 'DD.MM.YY HH:mm', timezone);
+            address = matches[2][5].trim();
         }
         if(matches[3]) {
             const year = now.year();
             from = moment.tz(matches[3][1] + '.' + year + ' ' + matches[3][2], 'DD.MM.YYYY HH:mm', timezone);
             to = moment.tz(matches[3][1] + '.' + year + ' ' + matches[3][3], 'DD.MM.YYYY HH:mm', timezone);
+            address = matches[3][4].trim();
 
             if(from.isBefore(now)) {
                 from.add(1, 'year');
@@ -302,35 +311,52 @@ export default class Parser {
                 to.add(1, 'year');
             }
         }
-
-        if((!matches[2] && !matches[3]) || !from || !to) {
-            throw new Error('Date, time and address not found (1)!');
+        if(matches[4] && matches[5] && matches[10]) {
+            from = moment.tz(matches[4][1] + ' ' + matches[5][1], 'DD.MM.YY HH:mm', timezone);
+            to = moment.tz(matches[4][1] + ' ' + matches[5][2], 'DD.MM.YY HH:mm', timezone);
+            address = matches[10][1].trim();
         }
 
-        const amount = parseInt(matches[4][1], 10);
+        if(!from || !to || !address) {
+            throw new Error('Date, time or address not found (2)!');
+        }
+
+        let amount = 0;
+        if (matches[6]) {
+            amount = parseInt(matches[6][1], 10);
+        }
+        else if (matches[7]) {
+            amount = parseInt(matches[7][1], 10);
+        }
+        else {
+            throw new Error('Amount not found!');
+        }
         if(isNaN(amount)) {
-            throw new Error('Amount is not a number!');
+            throw new Error('Amount (1) is not a number!');
         }
 
-        const price = parseInt(matches[5][1].replace(/[.|,]/g, ''));
+
+        let price = 0;
+        if (matches[8]) {
+            price = parseInt(matches[8][1].replace(/[.|,]/g, ''));
+        }
+        else if (matches[9]) {
+            price = parseInt(matches[9][1].replace(/[.|,]/g, ''));
+        }
+        else {
+            throw new Error('Price not found!');
+        }
         if(isNaN(price)) {
             throw new Error('Price is not a number!');
         }
+
 
         return {
             type: 'order',
             orderId: matches[0][1].trim(),
             location: {
                 name: he.decode(matches[1][1].trim()),
-                address: he.decode(
-                    matches[2]
-                        ? matches[2][5].trim()
-                        : (
-                            matches[3]
-                                ? matches[3][4].trim()
-                                : ''
-                        )
-                )
+                address: he.decode(address)
             },
             time: {
                 order: now,

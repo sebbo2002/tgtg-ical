@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/sebbo2002/tgtg-ical/compare/v2.0.1...v2.0.2) (2024-10-24)
+
+
+### Bug Fixes
+
+* Add support for new order emails ([02c2ca5](https://github.com/sebbo2002/tgtg-ical/commit/02c2ca5154cd2da023f4577f3d8093cbae1683ee))
+
 ## [2.0.1](https://github.com/sebbo2002/tgtg-ical/compare/v2.0.0...v2.0.1) (2024-10-10)
 
 # [2.0.0](https://github.com/sebbo2002/tgtg-ical/compare/v1.2.0...v2.0.0) (2024-08-26)

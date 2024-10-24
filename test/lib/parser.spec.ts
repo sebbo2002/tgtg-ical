@@ -10,6 +10,22 @@ describe('Parser', function () {
     const fixtures = Config.src('../test/lib/fixtures');
 
     describe('parseMail', function () {
+        it('should parse order mails (2024)', async function () {
+            const mail = await readFile(fixtures + '/order/de_2024.eml', 'utf-8');
+            const result = await Parser.parseMail(mail);
+
+            assert.ok(result);
+            assert.strictEqual(result.type, 'order');
+            assert.strictEqual(result.orderId, 'e8344qmk23750');
+            assert.strictEqual(result.location.name, 'Nordsee - Spandauer Straße');
+            assert.strictEqual(result.location.address, 'Spandauer Str. 4, 10178 Berlin, Deutschland');
+
+            assert.ok(result.time.from.isSame(moment.tz('2024-10-21T18:00:00.000', 'Europe/Berlin')));
+            assert.ok(result.time.to.isSame(moment.tz('2024-10-21T18:30:00.000', 'Europe/Berlin')));
+
+            assert.strictEqual(result.amount, 2);
+            assert.strictEqual(result.price, 800);
+        });
         it('should parse order mails (2023)', async function () {
             const mail = await readFile(fixtures + '/order/de_2023.eml', 'utf-8');
             const result = await Parser.parseMail(mail);

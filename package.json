@@ -10,7 +10,7 @@
   "dependencies": {
     "@criblinc/docker-names": "^1.2.1",
     "@prisma/client": "^5.21.1",
-    "@sentry/node": "^8.33.1",
+    "@sentry/node": "^8.37.1",
     "cookie-parser": "^1.4.6",
     "express": "^5.0.0",
     "he": "^1.2.0",

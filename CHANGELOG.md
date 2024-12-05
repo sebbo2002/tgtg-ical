@@ -1,3 +1,10 @@
+## [2.0.4](https://github.com/sebbo2002/tgtg-ical/compare/v2.0.3...v2.0.4) (2024-12-05)
+
+
+### Bug Fixes
+
+* **deps:** downgrade eslint to v9.13.0 to resolve typescript-eslint issue ([ad20987](https://github.com/sebbo2002/tgtg-ical/commit/ad20987733dd5b87689c181aeb60cc5c65acd4ac)), closes [#10353](https://github.com/sebbo2002/tgtg-ical/issues/10353) [typescript-eslint/typescript-eslint#10353](https://github.com/typescript-eslint/typescript-eslint/issues/10353)
+
 ## [2.0.3](https://github.com/sebbo2002/tgtg-ical/compare/v2.0.2...v2.0.3) (2024-11-15)
 
 ## [2.0.2](https://github.com/sebbo2002/tgtg-ical/compare/v2.0.1...v2.0.2) (2024-10-24)

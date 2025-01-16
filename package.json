@@ -14,7 +14,7 @@
     "cookie-parser": "^1.4.6",
     "express": "^5.0.0",
     "he": "^1.2.0",
-    "ical-generator": "^8.0.1",
+    "ical-generator": "^8.1.1",
     "mailparser": "^3.7.2",
     "moment-timezone": "^0.5.46"
   },

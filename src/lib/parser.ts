@@ -256,7 +256,7 @@ export default class Parser {
         const html = email.html || '';
         const matches = [
             html.match(/\/order\/([^/]+)\//),
-            html.match(/Wir bestätigen hiermit deine Bestellung bei ([^(.]+)/),
+            html.match(/Wir bestätigen hiermit deine Bestellung bei ([^(.<]+)/),
             html.match(/<span>Du kannst deine Bestellung am (\d{1,2}\.\d{2}\.\d{2}) zwischen (\d{1,2}:\d{2}) und (\d{1,2}:\d{2}) Uhr (\w+)[^:]+: (.+).<\/span><\/div>/),
             html.match(/<span>Du kannst deine Bestellung zwischen (\d{1,2}\.\d{1,2}), (\d{1,2}:\d{2}) und (\d{1,2}:\d{2})[^:]+: (.+).<\/span><\/div>/),
             html.match(/<b>Datum:<\/b>\s+<span>(\d{1,2}\.\d{2}\.\d{2})<\/span>/),
@@ -350,12 +350,16 @@ export default class Parser {
             throw new Error('Price is not a number!');
         }
 
+        let name = he.decode(matches[1][1].trim());
+        if (name.endsWith('!')) {
+            name = name.slice(0, -1);
+        }
 
         return {
             type: 'order',
             orderId: matches[0][1].trim(),
             location: {
-                name: he.decode(matches[1][1].trim()),
+                name,
                 address: he.decode(address)
             },
             time: {

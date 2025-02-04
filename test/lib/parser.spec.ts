@@ -10,6 +10,22 @@ describe('Parser', function () {
     const fixtures = Config.src('../test/lib/fixtures');
 
     describe('parseMail', function () {
+        it('should parse order mails (2025)', async function () {
+            const mail = await readFile(fixtures + '/order/de_2025.eml', 'utf-8');
+            const result = await Parser.parseMail(mail);
+
+            assert.ok(result);
+            assert.strictEqual(result.type, 'order');
+            assert.strictEqual(result.orderId, 'a85czf7ca5sx0');
+            assert.strictEqual(result.location.name, 'Restaurant Ännchen von Tharau');
+            assert.strictEqual(result.location.address, 'Rolandufer 6, 10179 Berlin, Deutschland');
+
+            assert.ok(result.time.from.isSame(moment.tz('2025-01-24T14:00:00.000', 'Europe/Berlin')));
+            assert.ok(result.time.to.isSame(moment.tz('2025-01-24T14:30:00.000', 'Europe/Berlin')));
+
+            assert.strictEqual(result.amount, 3);
+            assert.strictEqual(result.price, 1140);
+        });
         it('should parse order mails (2024)', async function () {
             const mail = await readFile(fixtures + '/order/de_2024.eml', 'utf-8');
             const result = await Parser.parseMail(mail);

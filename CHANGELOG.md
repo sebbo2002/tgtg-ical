@@ -1,3 +1,10 @@
+## [2.0.6](https://github.com/sebbo2002/tgtg-ical/compare/v2.0.5...v2.0.6) (2025-02-04)
+
+
+### Bug Fixes
+
+* Fix order parser to work with current emails ([d54059b](https://github.com/sebbo2002/tgtg-ical/commit/d54059bc45ec03a7bdf6717c73d3d8e87a0e6e8d))
+
 ## [2.0.5](https://github.com/sebbo2002/tgtg-ical/compare/v2.0.4...v2.0.5) (2025-01-09)
 
 ## [2.0.4](https://github.com/sebbo2002/tgtg-ical/compare/v2.0.3...v2.0.4) (2024-12-05)

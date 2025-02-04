@@ -16,7 +16,7 @@
     "he": "^1.2.0",
     "ical-generator": "^8.1.1",
     "mailparser": "^3.7.2",
-    "moment-timezone": "^0.5.46"
+    "moment-timezone": "^0.5.47"
   },
   "description": "A small server that receives mails from TGTG, parses them and generates an iCal feed from them.",
   "devDependencies": {

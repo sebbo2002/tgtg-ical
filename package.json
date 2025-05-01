@@ -1,88 +1,92 @@
 {
-  "author": "Sebastian Pekarek <mail@sebbo.net>",
-  "bin": {
-    "tgtg-ical-inhale-mail": "./dist/bin/inhale-mail.js",
-    "tgtg-ical-server": "./dist/start.js"
-  },
-  "bugs": {
-    "url": "https://github.com/sebbo2002/tgtg-ical/issues"
-  },
-  "dependencies": {
-    "@criblinc/docker-names": "^1.2.1",
-    "@prisma/client": "^6.6.0",
-    "@sentry/node": "^9.10.1",
-    "cookie-parser": "^1.4.6",
-    "express": "^5.1.0",
-    "he": "^1.2.0",
-    "ical-generator": "^8.1.1",
-    "mailparser": "^3.7.2",
-    "moment-timezone": "^0.5.48"
-  },
-  "description": "A small server that receives mails from TGTG, parses them and generates an iCal feed from them.",
-  "devDependencies": {
-    "@eslint/js": "^9.25.0",
-    "@qiwi/semantic-release-gh-pages-plugin": "^5.4.3",
-    "@sebbo2002/semantic-release-docker": "^5.0.4",
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/exec": "^7.0.3",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/npm": "^12.0.1",
-    "@types/cookie-parser": "^1.4.8",
-    "@types/express": "^5.0.1",
-    "@types/he": "^1.2.3",
-    "@types/mailparser": "^3.4.5",
-    "@types/mocha": "^10.0.10",
-    "@types/node": "^22.14.0",
-    "c8": "^10.1.3",
-    "eslint": "^9.24.0",
-    "eslint-plugin-jsonc": "^2.20.0",
-    "esm": "^3.2.25",
-    "license-checker": "^25.0.1",
-    "mocha": "^11.1.0",
-    "mochawesome": "^7.1.3",
-    "prisma": "^6.6.0",
-    "semantic-release-license": "^1.0.3",
-    "source-map-support": "^0.5.21",
-    "tsup": "^8.4.0",
-    "tsx": "^4.19.3",
-    "typedoc": "^0.28.2",
-    "typescript": "^5.8.3",
-    "typescript-eslint": "^8.29.0"
-  },
-  "engines": {
-    "node": "18 || 20 || >=22.0.0"
-  },
-  "exports": {
-    "import": "./dist/lib/index.js",
-    "require": "./dist/lib/index.cjs"
-  },
-  "files": [
-    "/dist",
-    "/src/assets",
-    "/src/prisma",
-    "/src/templates"
-  ],
-  "homepage": "https://github.com/sebbo2002/tgtg-ical#readme",
-  "license": "MIT",
-  "name": "@sebbo2002/tgtg-ical",
-  "prisma": {
-    "schema": "./src/prisma/schema.prisma"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sebbo2002/tgtg-ical.git"
-  },
-  "scripts": {
-    "build": "tsup",
-    "build-all": "./.github/workflows/build.sh",
-    "coverage": "c8 mocha",
-    "deploy": "./.github/workflows/deploy.sh",
-    "develop": "tsx src/bin/start.ts",
-    "license-check": "license-checker --production --summary",
-    "lint": "eslint .",
-    "start": "node ./dist/bin/start.js",
-    "test": "mocha"
-  },
-  "type": "module",
-  "version": "1.0.0-develop.0"
+    "author": "Sebastian Pekarek <mail@sebbo.net>",
+    "bin": {
+        "tgtg-ical-inhale-mail": "./dist/bin/inhale-mail.js",
+        "tgtg-ical-server": "./dist/start.js"
+    },
+    "bugs": {
+        "url": "https://github.com/sebbo2002/tgtg-ical/issues"
+    },
+    "dependencies": {
+        "@criblinc/docker-names": "^1.2.1",
+        "@prisma/client": "^6.6.0",
+        "@sentry/node": "^9.10.1",
+        "cookie-parser": "^1.4.6",
+        "express": "^5.1.0",
+        "he": "^1.2.0",
+        "ical-generator": "^8.1.1",
+        "mailparser": "^3.7.2",
+        "moment-timezone": "^0.5.48"
+    },
+    "description": "A small server that receives mails from TGTG, parses them and generates an iCal feed from them.",
+    "devDependencies": {
+        "@eslint/js": "^9.25.0",
+        "@qiwi/semantic-release-gh-pages-plugin": "^5.4.3",
+        "@sebbo2002/semantic-release-docker": "^5.0.4",
+        "@semantic-release/changelog": "^6.0.3",
+        "@semantic-release/exec": "^7.0.3",
+        "@semantic-release/git": "^10.0.1",
+        "@semantic-release/npm": "^12.0.1",
+        "@types/cookie-parser": "^1.4.8",
+        "@types/express": "^5.0.1",
+        "@types/he": "^1.2.3",
+        "@types/mailparser": "^3.4.5",
+        "@types/mocha": "^10.0.10",
+        "@types/node": "^22.14.0",
+        "c8": "^10.1.3",
+        "eslint": "^9.24.0",
+        "eslint-config-prettier": "^10.1.2",
+        "eslint-plugin-jsonc": "^2.20.0",
+        "eslint-plugin-perfectionist": "^4.12.3",
+        "esm": "^3.2.25",
+        "husky": "^9.1.7",
+        "license-checker": "^25.0.1",
+        "mocha": "^11.1.0",
+        "mochawesome": "^7.1.3",
+        "prettier": "^3.5.3",
+        "prisma": "^6.6.0",
+        "semantic-release-license": "^1.0.3",
+        "source-map-support": "^0.5.21",
+        "tsup": "^8.4.0",
+        "tsx": "^4.19.3",
+        "typedoc": "^0.28.2",
+        "typescript": "^5.8.3",
+        "typescript-eslint": "^8.29.0"
+    },
+    "engines": {
+        "node": "18 || 20 || >=22.0.0"
+    },
+    "exports": {
+        "import": "./dist/lib/index.js",
+        "require": "./dist/lib/index.cjs"
+    },
+    "files": [
+        "/dist",
+        "/src/assets",
+        "/src/prisma",
+        "/src/templates"
+    ],
+    "homepage": "https://github.com/sebbo2002/tgtg-ical#readme",
+    "license": "MIT",
+    "name": "@sebbo2002/tgtg-ical",
+    "prisma": {
+        "schema": "./src/prisma/schema.prisma"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sebbo2002/tgtg-ical.git"
+    },
+    "scripts": {
+        "build": "tsup",
+        "build-all": "./.github/workflows/build.sh",
+        "coverage": "c8 mocha",
+        "deploy": "./.github/workflows/deploy.sh",
+        "develop": "tsx src/bin/start.ts",
+        "license-check": "license-checker --production --summary",
+        "lint": "npx eslint . --fix && npx prettier . --write",
+        "start": "node ./dist/bin/start.js",
+        "test": "mocha"
+    },
+    "type": "module",
+    "version": "1.0.0-develop.0"
 }

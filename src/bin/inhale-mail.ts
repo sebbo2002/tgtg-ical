@@ -9,9 +9,8 @@ process.stdin.on('data', (chunk) => {
     buffer += chunk;
 });
 process.stdin.on('end', () => {
-    Parser.inhaleMail(buffer)
-        .catch(error => {
-            console.error(error);
-            process.exit(1);
-        });
+    Parser.inhaleMail(buffer).catch((error) => {
+        console.error(error);
+        process.exit(1);
+    });
 });

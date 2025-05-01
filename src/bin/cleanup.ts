@@ -4,8 +4,7 @@
 /* istanbul ignore file */
 import Parser from '../lib/parser.js';
 
-Parser.runCleanup()
-    .catch(error => {
-        console.error(error);
-        process.exit(1);
-    });
+Parser.runCleanup().catch((error) => {
+    console.error(error);
+    process.exit(1);
+});

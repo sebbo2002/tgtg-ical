@@ -1,5 +1,5 @@
 :root {
-    --color-primary: #4B8150;
+    --color-primary: #4b8150;
     --color-primary-rgb: 75, 129, 80;
     --color-primary-dark: #38613c;
     --color-primary-dark-rgb: 56, 97, 60;
@@ -21,21 +21,35 @@ a:visited {
 html {
     box-sizing: border-box;
     font-size: 16px;
-    font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+    font-family:
+        Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans',
+        source-sans-pro, sans-serif;
     min-height: 100vh;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
     box-sizing: inherit;
 }
 
-body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
     margin: 0;
     padding: 0;
     font-weight: normal;
 }
 
-ol, ul {
+ol,
+ul {
     list-style: none;
 }
 
@@ -151,7 +165,9 @@ body {
 .button--ok {
     pointer-events: none;
     color: transparent;
-    background: var(--color-primary) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 12l5 5l10 -10"></path></svg>') center center no-repeat;
+    background: var(--color-primary)
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 12l5 5l10 -10"></path></svg>')
+        center center no-repeat;
 }
 
 .footer {

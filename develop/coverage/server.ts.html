@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/170</span>
+                <span class='fraction'>0/183</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/170</span>
+                <span class='fraction'>0/183</span>
             </div>
         
             
@@ -233,7 +233,20 @@
 <a name='L168'></a><a href='#L168'>168</a>
 <a name='L169'></a><a href='#L169'>169</a>
 <a name='L170'></a><a href='#L170'>170</a>
-<a name='L171'></a><a href='#L171'>171</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L171'></a><a href='#L171'>171</a>
+<a name='L172'></a><a href='#L172'>172</a>
+<a name='L173'></a><a href='#L173'>173</a>
+<a name='L174'></a><a href='#L174'>174</a>
+<a name='L175'></a><a href='#L175'>175</a>
+<a name='L176'></a><a href='#L176'>176</a>
+<a name='L177'></a><a href='#L177'>177</a>
+<a name='L178'></a><a href='#L178'>178</a>
+<a name='L179'></a><a href='#L179'>179</a>
+<a name='L180'></a><a href='#L180'>180</a>
+<a name='L181'></a><a href='#L181'>181</a>
+<a name='L182'></a><a href='#L182'>182</a>
+<a name='L183'></a><a href='#L183'>183</a>
+<a name='L184'></a><a href='#L184'>184</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -403,19 +416,33 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >import prisma from './db.js';</span></span></span>
-<span class="cstat-no" title="statement not covered" >import { randomUUID } from 'node:crypto';</span>
-<span class="cstat-no" title="statement not covered" >import { generateName, generateNameWithNumber } from '@criblinc/docker-names';</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >import { generateName, generateNameWithNumber } from '@criblinc/docker-names';</span></span></span>
 <span class="cstat-no" title="statement not covered" >import { User } from '@prisma/client';</span>
-<span class="cstat-no" title="statement not covered" >import { ICalAlarmType, ICalCalendar, ICalEventStatus } from 'ical-generator';</span>
-<span class="cstat-no" title="statement not covered" >import { DEFAULT_EMOJI } from './emoji.js';</span>
-<span class="cstat-no" title="statement not covered" >import moment from 'moment-timezone';</span>
 <span class="cstat-no" title="statement not covered" >import { readFile } from 'fs/promises';</span>
+<span class="cstat-no" title="statement not covered" >import { ICalAlarmType, ICalCalendar, ICalEventStatus } from 'ical-generator';</span>
+<span class="cstat-no" title="statement not covered" >import moment from 'moment-timezone';</span>
+<span class="cstat-no" title="statement not covered" >import { randomUUID } from 'node:crypto';</span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >import Config from './config.js';</span>
+<span class="cstat-no" title="statement not covered" >import prisma from './db.js';</span>
+<span class="cstat-no" title="statement not covered" >import { DEFAULT_EMOJI } from './emoji.js';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >export default class ServerLib {</span>
 <span class="cstat-no" title="statement not covered" >    static async createUser() {</span>
-<span class="cstat-no" title="statement not covered" >        let user: User | undefined;</span>
+<span class="cstat-no" title="statement not covered" >        let user: undefined | User;</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >        // eslint-disable-next-line no-constant-condition</span>
 <span class="cstat-no" title="statement not covered" >        for (let c = 0; true; c++) {</span>
@@ -423,154 +450,166 @@
 <span class="cstat-no" title="statement not covered" >            try {</span>
 <span class="cstat-no" title="statement not covered" >                user = await prisma.user.create({</span>
 <span class="cstat-no" title="statement not covered" >                    data: {</span>
-<span class="cstat-no" title="statement not covered" >                        prefix</span>
-<span class="cstat-no" title="statement not covered" >                    }</span>
+<span class="cstat-no" title="statement not covered" >                        prefix,</span>
+<span class="cstat-no" title="statement not covered" >                    },</span>
 <span class="cstat-no" title="statement not covered" >                });</span>
-<span class="cstat-no" title="statement not covered" >                if(user) {</span>
+<span class="cstat-no" title="statement not covered" >                if (user) {</span>
 <span class="cstat-no" title="statement not covered" >                    break;</span>
 <span class="cstat-no" title="statement not covered" >                }</span>
-<span class="cstat-no" title="statement not covered" >            }</span>
-<span class="cstat-no" title="statement not covered" >            catch(error) {</span>
-<span class="cstat-no" title="statement not covered" >                if(error &amp;&amp; typeof error === 'object' &amp;&amp; 'code' in error &amp;&amp; error.code === 'P2002') {</span>
+<span class="cstat-no" title="statement not covered" >            } catch (error) {</span>
+<span class="cstat-no" title="statement not covered" >                if (</span>
+<span class="cstat-no" title="statement not covered" >                    error &amp;&amp;</span>
+<span class="cstat-no" title="statement not covered" >                    typeof error === 'object' &amp;&amp;</span>
+<span class="cstat-no" title="statement not covered" >                    'code' in error &amp;&amp;</span>
+<span class="cstat-no" title="statement not covered" >                    error.code === 'P2002'</span>
+<span class="cstat-no" title="statement not covered" >                ) {</span>
 <span class="cstat-no" title="statement not covered" >                    continue;</span>
 <span class="cstat-no" title="statement not covered" >                }</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >                throw error;</span>
 <span class="cstat-no" title="statement not covered" >            }</span>
 <span class="cstat-no" title="statement not covered" >        }</span>
-<span class="cstat-no" title="statement not covered" >        if(!user) {</span>
+<span class="cstat-no" title="statement not covered" >        if (!user) {</span>
 <span class="cstat-no" title="statement not covered" >            throw new Error('User not created');</span>
 <span class="cstat-no" title="statement not covered" >        }</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >        return user;</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    static generatePrefix(c = 0) {</span>
-<span class="cstat-no" title="statement not covered" >        if(c &gt; 100) {</span>
-<span class="cstat-no" title="statement not covered" >            return randomUUID();</span>
-<span class="cstat-no" title="statement not covered" >        }</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >        if(c &lt; 10) {</span>
-<span class="cstat-no" title="statement not covered" >            return generateName();</span>
-<span class="cstat-no" title="statement not covered" >        }</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >        return generateNameWithNumber();</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    static async getUser(userId: string) {</span>
-<span class="cstat-no" title="statement not covered" >        const user = await prisma.user.findUniqueOrThrow({</span>
-<span class="cstat-no" title="statement not covered" >            where: {</span>
-<span class="cstat-no" title="statement not covered" >                id: userId</span>
-<span class="cstat-no" title="statement not covered" >            }</span>
-<span class="cstat-no" title="statement not covered" >        });</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >        this.updateUserLastSeen(user.id);</span>
-<span class="cstat-no" title="statement not covered" >        return user;</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    static updateUserLastSeen(userId: string) {</span>
-<span class="cstat-no" title="statement not covered" >        prisma.user.update({</span>
-<span class="cstat-no" title="statement not covered" >            where: { id: userId },</span>
-<span class="cstat-no" title="statement not covered" >            data: { lastSeenAt: new Date() }</span>
-<span class="cstat-no" title="statement not covered" >        }).catch(error =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >            console.log(error);</span>
-<span class="cstat-no" title="statement not covered" >        });</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    static async generateUserPage(userId: string) {</span>
-<span class="cstat-no" title="statement not covered" >        const [user, html] = await Promise.all([</span>
-<span class="cstat-no" title="statement not covered" >            this.getUser(userId),</span>
-<span class="cstat-no" title="statement not covered" >            readFile(Config.src('templates/user.html'), 'utf-8')</span>
-<span class="cstat-no" title="statement not covered" >        ]);</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >        return html</span>
-<span class="cstat-no" title="statement not covered" >            .replace(/\${CALENDAR_URL}/g, `${Config.baseUrl}/${user.id}/calendar.ical`)</span>
-<span class="cstat-no" title="statement not covered" >            .replace(/\${EMAIL_ADDRESS}/g, `${user.prefix}${Config.baseMail}`);</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    static async generateCalendar(userId: string) {</span>
 <span class="cstat-no" title="statement not covered" >        const user = await prisma.user.findUniqueOrThrow({</span>
-<span class="cstat-no" title="statement not covered" >            where: {</span>
-<span class="cstat-no" title="statement not covered" >                id: userId</span>
-<span class="cstat-no" title="statement not covered" >            },</span>
 <span class="cstat-no" title="statement not covered" >            select: {</span>
-<span class="cstat-no" title="statement not covered" >                id: true,</span>
 <span class="cstat-no" title="statement not covered" >                event: {</span>
 <span class="cstat-no" title="statement not covered" >                    select: {</span>
-<span class="cstat-no" title="statement not covered" >                        id: true,</span>
-<span class="cstat-no" title="statement not covered" >                        orderId: true,</span>
-<span class="cstat-no" title="statement not covered" >                        from: true,</span>
-<span class="cstat-no" title="statement not covered" >                        to: true,</span>
 <span class="cstat-no" title="statement not covered" >                        amount: true,</span>
-<span class="cstat-no" title="statement not covered" >                        price: true,</span>
+<span class="cstat-no" title="statement not covered" >                        canceledAt: true,</span>
+<span class="cstat-no" title="statement not covered" >                        createdAt: true,</span>
+<span class="cstat-no" title="statement not covered" >                        from: true,</span>
+<span class="cstat-no" title="statement not covered" >                        id: true,</span>
 <span class="cstat-no" title="statement not covered" >                        location: {</span>
 <span class="cstat-no" title="statement not covered" >                            select: {</span>
-<span class="cstat-no" title="statement not covered" >                                name: true,</span>
 <span class="cstat-no" title="statement not covered" >                                address: true,</span>
 <span class="cstat-no" title="statement not covered" >                                emoji: true,</span>
 <span class="cstat-no" title="statement not covered" >                                latitude: true,</span>
-<span class="cstat-no" title="statement not covered" >                                longitude: true</span>
-<span class="cstat-no" title="statement not covered" >                            }</span>
+<span class="cstat-no" title="statement not covered" >                                longitude: true,</span>
+<span class="cstat-no" title="statement not covered" >                                name: true,</span>
+<span class="cstat-no" title="statement not covered" >                            },</span>
 <span class="cstat-no" title="statement not covered" >                        },</span>
-<span class="cstat-no" title="statement not covered" >                        createdAt: true,</span>
-<span class="cstat-no" title="statement not covered" >                        canceledAt: true</span>
-<span class="cstat-no" title="statement not covered" >                    }</span>
-<span class="cstat-no" title="statement not covered" >                }</span>
-<span class="cstat-no" title="statement not covered" >            }</span>
+<span class="cstat-no" title="statement not covered" >                        orderId: true,</span>
+<span class="cstat-no" title="statement not covered" >                        price: true,</span>
+<span class="cstat-no" title="statement not covered" >                        to: true,</span>
+<span class="cstat-no" title="statement not covered" >                    },</span>
+<span class="cstat-no" title="statement not covered" >                },</span>
+<span class="cstat-no" title="statement not covered" >                id: true,</span>
+<span class="cstat-no" title="statement not covered" >            },</span>
+<span class="cstat-no" title="statement not covered" >            where: {</span>
+<span class="cstat-no" title="statement not covered" >                id: userId,</span>
+<span class="cstat-no" title="statement not covered" >            },</span>
 <span class="cstat-no" title="statement not covered" >        });</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >        const cal = new ICalCalendar({</span>
-<span class="cstat-no" title="statement not covered" >            name: 'TGTG',</span>
-<span class="cstat-no" title="statement not covered" >            ttl: 60 * 60,</span>
-<span class="cstat-no" title="statement not covered" >            events: user.event.map(event =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >                const price = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' })</span>
-<span class="cstat-no" title="statement not covered" >                    .format(event.price / 100);</span>
+<span class="cstat-no" title="statement not covered" >            events: user.event.map((event) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                const price = new Intl.NumberFormat('de-DE', {</span>
+<span class="cstat-no" title="statement not covered" >                    currency: 'EUR',</span>
+<span class="cstat-no" title="statement not covered" >                    style: 'currency',</span>
+<span class="cstat-no" title="statement not covered" >                }).format(event.price / 100);</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >                let status: ICalEventStatus = ICalEventStatus.CONFIRMED;</span>
-<span class="cstat-no" title="statement not covered" >                if(event.canceledAt) {</span>
+<span class="cstat-no" title="statement not covered" >                if (event.canceledAt) {</span>
 <span class="cstat-no" title="statement not covered" >                    status = ICalEventStatus.CANCELLED;</span>
 <span class="cstat-no" title="statement not covered" >                }</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >                return {</span>
-<span class="cstat-no" title="statement not covered" >                    id: event.id,</span>
-<span class="cstat-no" title="statement not covered" >                    start: event.from,</span>
-<span class="cstat-no" title="statement not covered" >                    end: event.to,</span>
-<span class="cstat-no" title="statement not covered" >                    timestamp: event.createdAt,</span>
-<span class="cstat-no" title="statement not covered" >                    summary: `${event.location.emoji || DEFAULT_EMOJI} ${event.location.name}`,</span>
-<span class="cstat-no" title="statement not covered" >                    description: `${event.amount}x\n${price}`,</span>
-<span class="cstat-no" title="statement not covered" >                    url: `https://share.toogoodtogo.com/receipts/details/${event.orderId}`,</span>
-<span class="cstat-no" title="statement not covered" >                    status,</span>
+<span class="cstat-no" title="statement not covered" >                    alarms: [{ trigger: 600, type: ICalAlarmType.display }],</span>
 <span class="cstat-no" title="statement not covered" >                    created: event.createdAt,</span>
+<span class="cstat-no" title="statement not covered" >                    description: `${event.amount}x\n${price}`,</span>
+<span class="cstat-no" title="statement not covered" >                    end: event.to,</span>
+<span class="cstat-no" title="statement not covered" >                    id: event.id,</span>
 <span class="cstat-no" title="statement not covered" >                    location: {</span>
-<span class="cstat-no" title="statement not covered" >                        title: event.location.name,</span>
 <span class="cstat-no" title="statement not covered" >                        address: event.location.address,</span>
-<span class="cstat-no" title="statement not covered" >                        geo: event.location.latitude &amp;&amp; event.location.longitude ? {</span>
-<span class="cstat-no" title="statement not covered" >                            lat: event.location.latitude,</span>
-<span class="cstat-no" title="statement not covered" >                            lon: event.location.longitude</span>
-<span class="cstat-no" title="statement not covered" >                        } : undefined</span>
+<span class="cstat-no" title="statement not covered" >                        geo:</span>
+<span class="cstat-no" title="statement not covered" >                            event.location.latitude &amp;&amp; event.location.longitude</span>
+<span class="cstat-no" title="statement not covered" >                                ? {</span>
+<span class="cstat-no" title="statement not covered" >                                      lat: event.location.latitude,</span>
+<span class="cstat-no" title="statement not covered" >                                      lon: event.location.longitude,</span>
+<span class="cstat-no" title="statement not covered" >                                  }</span>
+<span class="cstat-no" title="statement not covered" >                                : undefined,</span>
+<span class="cstat-no" title="statement not covered" >                        title: event.location.name,</span>
 <span class="cstat-no" title="statement not covered" >                    },</span>
-<span class="cstat-no" title="statement not covered" >                    alarms: [</span>
-<span class="cstat-no" title="statement not covered" >                        {type: ICalAlarmType.display, trigger: 600},</span>
-<span class="cstat-no" title="statement not covered" >                    ]</span>
+<span class="cstat-no" title="statement not covered" >                    start: event.from,</span>
+<span class="cstat-no" title="statement not covered" >                    status,</span>
+<span class="cstat-no" title="statement not covered" >                    summary: `${event.location.emoji || DEFAULT_EMOJI} ${event.location.name}`,</span>
+<span class="cstat-no" title="statement not covered" >                    timestamp: event.createdAt,</span>
+<span class="cstat-no" title="statement not covered" >                    url: `https://share.toogoodtogo.com/receipts/details/${event.orderId}`,</span>
 <span class="cstat-no" title="statement not covered" >                };</span>
-<span class="cstat-no" title="statement not covered" >            })</span>
+<span class="cstat-no" title="statement not covered" >            }),</span>
+<span class="cstat-no" title="statement not covered" >            name: 'TGTG',</span>
+<span class="cstat-no" title="statement not covered" >            ttl: 60 * 60,</span>
 <span class="cstat-no" title="statement not covered" >        });</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >        this.updateUserLastSeen(userId);</span>
 <span class="cstat-no" title="statement not covered" >        return cal.toString();</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
 <span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    static generatePrefix(c = 0) {</span>
+<span class="cstat-no" title="statement not covered" >        if (c &gt; 100) {</span>
+<span class="cstat-no" title="statement not covered" >            return randomUUID();</span>
+<span class="cstat-no" title="statement not covered" >        }</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >        if (c &lt; 10) {</span>
+<span class="cstat-no" title="statement not covered" >            return generateName();</span>
+<span class="cstat-no" title="statement not covered" >        }</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >        return generateNameWithNumber();</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    static async generateUserPage(userId: string) {</span>
+<span class="cstat-no" title="statement not covered" >        const [user, html] = await Promise.all([</span>
+<span class="cstat-no" title="statement not covered" >            this.getUser(userId),</span>
+<span class="cstat-no" title="statement not covered" >            readFile(Config.src('templates/user.html'), 'utf-8'),</span>
+<span class="cstat-no" title="statement not covered" >        ]);</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >        return html</span>
+<span class="cstat-no" title="statement not covered" >            .replace(</span>
+<span class="cstat-no" title="statement not covered" >                /\${CALENDAR_URL}/g,</span>
+<span class="cstat-no" title="statement not covered" >                `${Config.baseUrl}/${user.id}/calendar.ical`,</span>
+<span class="cstat-no" title="statement not covered" >            )</span>
+<span class="cstat-no" title="statement not covered" >            .replace(/\${EMAIL_ADDRESS}/g, `${user.prefix}${Config.baseMail}`);</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    static async getUser(userId: string) {</span>
+<span class="cstat-no" title="statement not covered" >        const user = await prisma.user.findUniqueOrThrow({</span>
+<span class="cstat-no" title="statement not covered" >            where: {</span>
+<span class="cstat-no" title="statement not covered" >                id: userId,</span>
+<span class="cstat-no" title="statement not covered" >            },</span>
+<span class="cstat-no" title="statement not covered" >        });</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >        this.updateUserLastSeen(user.id);</span>
+<span class="cstat-no" title="statement not covered" >        return user;</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    static async isHealthy() {</span>
 <span class="cstat-no" title="statement not covered" >        const c = await prisma.mail.count({</span>
 <span class="cstat-no" title="statement not covered" >            where: {</span>
 <span class="cstat-no" title="statement not covered" >                createdAt: {</span>
-<span class="cstat-no" title="statement not covered" >                    lt: moment().subtract(30, 'minutes').toDate()</span>
-<span class="cstat-no" title="statement not covered" >                }</span>
-<span class="cstat-no" title="statement not covered" >            }</span>
+<span class="cstat-no" title="statement not covered" >                    lt: moment().subtract(30, 'minutes').toDate(),</span>
+<span class="cstat-no" title="statement not covered" >                },</span>
+<span class="cstat-no" title="statement not covered" >            },</span>
 <span class="cstat-no" title="statement not covered" >        });</span>
-<span class="cstat-no" title="statement not covered" >        if(c &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >        if (c &gt; 0) {</span>
 <span class="cstat-no" title="statement not covered" >            throw new Error(`There are ${c} unhandled mails in the queue!`);</span>
 <span class="cstat-no" title="statement not covered" >        }</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    static updateUserLastSeen(userId: string) {</span>
+<span class="cstat-no" title="statement not covered" >        prisma.user</span>
+<span class="cstat-no" title="statement not covered" >            .update({</span>
+<span class="cstat-no" title="statement not covered" >                data: { lastSeenAt: new Date() },</span>
+<span class="cstat-no" title="statement not covered" >                where: { id: userId },</span>
+<span class="cstat-no" title="statement not covered" >            })</span>
+<span class="cstat-no" title="statement not covered" >            .catch((error) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                console.log(error);</span>
+<span class="cstat-no" title="statement not covered" >            });</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 &nbsp;</pre></td></tr></table></pre>
@@ -580,7 +619,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-04-29T15:17:21.793Z
+                at 2025-05-01T20:48:31.823Z
             </div>
         <script src="prettify.js"></script>
         <script>

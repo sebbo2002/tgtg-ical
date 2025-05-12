@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/sebbo2002/tgtg-ical/compare/v2.0.8...v3.0.0) (2025-05-12)
+
+### chore
+
+- Drop node v18 support ([3e18405](https://github.com/sebbo2002/tgtg-ical/commit/3e18405ac1e1be738a414623f97169c802567f99))
+
+### BREAKING CHANGES
+
+- Drop node.js v18 Support
+
+This node.js version is no longer supported. For more information see https://nodejs.dev/en/about/releases/
+
 ## [2.0.8](https://github.com/sebbo2002/tgtg-ical/compare/v2.0.7...v2.0.8) (2025-04-03)
 
 ## [2.0.7](https://github.com/sebbo2002/tgtg-ical/compare/v2.0.6...v2.0.7) (2025-03-09)

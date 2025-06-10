@@ -20,7 +20,7 @@
     },
     "description": "A small server that receives mails from TGTG, parses them and generates an iCal feed from them.",
     "devDependencies": {
-        "@eslint/js": "^9.26.0",
+        "@eslint/js": "^9.28.0",
         "@qiwi/semantic-release-gh-pages-plugin": "^5.4.3",
         "@sebbo2002/semantic-release-docker": "^6.0.0",
         "@semantic-release/changelog": "^6.0.3",
@@ -49,7 +49,7 @@
         "source-map-support": "^0.5.21",
         "tsup": "^8.5.0",
         "tsx": "^4.19.4",
-        "typedoc": "^0.28.4",
+        "typedoc": "^0.28.5",
         "typescript": "^5.8.3",
         "typescript-eslint": "^8.32.1"
     },

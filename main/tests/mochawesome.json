@@ -5,9 +5,9 @@
     "passes": 13,
     "pending": 0,
     "failures": 0,
-    "start": "2025-05-12T16:31:28.601Z",
-    "end": "2025-05-12T16:31:28.714Z",
-    "duration": 113,
+    "start": "2025-06-18T19:49:03.631Z",
+    "end": "2025-06-18T19:49:03.745Z",
+    "duration": 114,
     "testsRegistered": 13,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "893e3a5e-dfc4-4430-aa64-bede30c7610b",
+      "uuid": "07c9cb9c-9909-4f5d-a7d9-bcfc414e565a",
       "title": "",
       "fullFile": "/home/runner/work/tgtg-ical/tgtg-ical/test/lib/parser.spec.ts",
       "file": "/test/lib/parser.spec.ts",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "228727b6-974b-4287-8137-69800df73027",
+          "uuid": "abc8267a-2ca9-4fb9-a3a6-9f8799d7d61b",
           "title": "Parser",
           "fullFile": "/home/runner/work/tgtg-ical/tgtg-ical/test/lib/parser.spec.ts",
           "file": "/test/lib/parser.spec.ts",
@@ -36,7 +36,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "b8fac654-8b3c-4d69-bef2-be9512fa5dfd",
+              "uuid": "a2fbc145-7196-4268-8668-430f959aee65",
               "title": "parseMail",
               "fullFile": "/home/runner/work/tgtg-ical/tgtg-ical/test/lib/parser.spec.ts",
               "file": "/test/lib/parser.spec.ts",
@@ -47,7 +47,7 @@
                   "title": "should parse order mails (2025)",
                   "fullTitle": "Parser parseMail should parse order mails (2025)",
                   "timedOut": false,
-                  "duration": 45,
+                  "duration": 42,
                   "state": "passed",
                   "speed": "medium",
                   "pass": true,
@@ -56,8 +56,8 @@
                   "context": null,
                   "code": "const mail=await readFile(fixtures+\"/order/de_2025.eml\",\"utf-8\");const result=await Parser.parseMail(mail);assert.ok(result);assert.strictEqual(result.type,\"order\");assert.strictEqual(result.orderId,\"a85czf7ca5sx0\");assert.strictEqual(result.location.name,\"Restaurant \\xC4nnchen von Tharau\");assert.strictEqual(result.location.address,\"Rolandufer 6, 10179 Berlin, Deutschland\");assert.ok(result.time.from.isSame(moment.tz(\"2025-01-24T14:00:00.000\",\"Europe/Berlin\")));assert.ok(result.time.to.isSame(moment.tz(\"2025-01-24T14:30:00.000\",\"Europe/Berlin\")));assert.strictEqual(result.amount,3);assert.strictEqual(result.price,1140)",
                   "err": {},
-                  "uuid": "ec1a2569-bd5a-42d7-85ad-26f9d7512603",
-                  "parentUUID": "b8fac654-8b3c-4d69-bef2-be9512fa5dfd",
+                  "uuid": "e5413c46-ae9b-4f72-838d-e0faf2a97494",
+                  "parentUUID": "a2fbc145-7196-4268-8668-430f959aee65",
                   "isHook": false,
                   "skipped": false
                 },
@@ -74,8 +74,8 @@
                   "context": null,
                   "code": "const mail=await readFile(fixtures+\"/order/de_2024.eml\",\"utf-8\");const result=await Parser.parseMail(mail);assert.ok(result);assert.strictEqual(result.type,\"order\");assert.strictEqual(result.orderId,\"e8344qmk23750\");assert.strictEqual(result.location.name,\"Nordsee - Spandauer Stra\\xDFe\");assert.strictEqual(result.location.address,\"Spandauer Str. 4, 10178 Berlin, Deutschland\");assert.ok(result.time.from.isSame(moment.tz(\"2024-10-21T18:00:00.000\",\"Europe/Berlin\")));assert.ok(result.time.to.isSame(moment.tz(\"2024-10-21T18:30:00.000\",\"Europe/Berlin\")));assert.strictEqual(result.amount,2);assert.strictEqual(result.price,800)",
                   "err": {},
-                  "uuid": "af6b60b3-642f-4ca6-b9ff-0339c1b53110",
-                  "parentUUID": "b8fac654-8b3c-4d69-bef2-be9512fa5dfd",
+                  "uuid": "b0cd27cf-5514-4f1b-bc43-6f1b9d0ce199",
+                  "parentUUID": "a2fbc145-7196-4268-8668-430f959aee65",
                   "isHook": false,
                   "skipped": false
                 },
@@ -92,8 +92,8 @@
                   "context": null,
                   "code": "const mail=await readFile(fixtures+\"/order/de_2023.eml\",\"utf-8\");const result=await Parser.parseMail(mail);assert.ok(result);assert.strictEqual(result.type,\"order\");assert.strictEqual(result.orderId,\"rio3sec8wgb\");assert.deepStrictEqual(result.location,{address:\"Spandauer Str. 4, 10178 Berlin, Deutschland\",name:\"Nordsee - Spandauer Stra\\xDFe\"});assert.ok(result.time.from.isSame(moment.tz(\"2023-07-24T18:30:00.000\",\"Europe/Berlin\")));assert.ok(result.time.to.isSame(moment.tz(\"2023-07-24T19:00:00.000\",\"Europe/Berlin\")));assert.strictEqual(result.amount,2);assert.strictEqual(result.price,700)",
                   "err": {},
-                  "uuid": "187c0e55-e2ed-450c-b7fa-3c58dad1d0dd",
-                  "parentUUID": "b8fac654-8b3c-4d69-bef2-be9512fa5dfd",
+                  "uuid": "48a719ae-0de8-4884-8036-7f6955273f22",
+                  "parentUUID": "a2fbc145-7196-4268-8668-430f959aee65",
                   "isHook": false,
                   "skipped": false
                 },
@@ -110,8 +110,8 @@
                   "context": null,
                   "code": "const mail=await readFile(fixtures+\"/order/de_2023_encoding.eml\",\"utf-8\");const result=await Parser.parseMail(mail);assert.ok(result);assert.strictEqual(result.type,\"order\");assert.strictEqual(result.orderId,\"kknd37xqvo3\");assert.deepStrictEqual(result.location,{address:\"Alte Jakobstra\\xDFe 77, 10179 Berlin, Deutschland\",name:\"Crunchy & Soft Bakery\"});assert.ok(result.time.from.isSame(moment.tz(\"2023-10-27T10:00:00.000\",\"Europe/Berlin\")));assert.ok(result.time.to.isSame(moment.tz(\"2023-10-27T11:00:00.000\",\"Europe/Berlin\")));assert.strictEqual(result.amount,1);assert.strictEqual(result.price,300)",
                   "err": {},
-                  "uuid": "8e1038c9-0bf2-48bc-99cd-67fada4ebbbe",
-                  "parentUUID": "b8fac654-8b3c-4d69-bef2-be9512fa5dfd",
+                  "uuid": "84b310dc-51d5-4b66-8da5-b581df0edfcd",
+                  "parentUUID": "a2fbc145-7196-4268-8668-430f959aee65",
                   "isHook": false,
                   "skipped": false
                 },
@@ -128,8 +128,8 @@
                   "context": null,
                   "code": "const mail=await readFile(fixtures+\"/order/de_2021.eml\",\"utf-8\");const result=await Parser.parseMail(mail);assert.ok(result);assert.strictEqual(result.type,\"order\");assert.strictEqual(result.orderId,\"dfaxqeu6f8d\");assert.deepStrictEqual(result.location,{address:\"Friedrichstra\\xDFe 41, 10969 Berlin, Deutschland\",name:\"Kamps Backstube - Checkpoint Charlie\"});const year=moment(result.time.order).year();assert.ok(result.time.from.isSame(moment.tz(year+\"-04-30T16:30:00.000\",\"Europe/Berlin\")));assert.ok(result.time.to.isSame(moment.tz(year+\"-04-30T17:00:00.000\",\"Europe/Berlin\")));assert.strictEqual(result.amount,1);assert.strictEqual(result.price,430)",
                   "err": {},
-                  "uuid": "12e7d1e3-a103-43fd-a9a6-583c28f378b7",
-                  "parentUUID": "b8fac654-8b3c-4d69-bef2-be9512fa5dfd",
+                  "uuid": "7f596dfd-2217-4884-af73-c52e78dcc1c8",
+                  "parentUUID": "a2fbc145-7196-4268-8668-430f959aee65",
                   "isHook": false,
                   "skipped": false
                 },
@@ -137,7 +137,7 @@
                   "title": "should parse order mails (2020)",
                   "fullTitle": "Parser parseMail should parse order mails (2020)",
                   "timedOut": false,
-                  "duration": 3,
+                  "duration": 4,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -146,8 +146,8 @@
                   "context": null,
                   "code": "const mail=await readFile(fixtures+\"/order/de_2020.eml\",\"utf-8\");const result=await Parser.parseMail(mail);assert.ok(result);assert.strictEqual(result.type,\"order\");assert.strictEqual(result.orderId,\"too38e9h7io\");assert.deepStrictEqual(result.location,{address:\"Europaplatz 1, 10557 Berlin, Deutschland\",name:\"Rice On! - Berlin\"});assert.ok(result.time.from.isSame(moment.tz(\"2020-07-29T18:30:00.000\",\"Europe/Berlin\")));assert.ok(result.time.to.isSame(moment.tz(\"2020-07-29T19:00:00.000\",\"Europe/Berlin\")));assert.strictEqual(result.amount,1);assert.strictEqual(result.price,400)",
                   "err": {},
-                  "uuid": "b663eeb4-ebf7-435c-abe4-716cab531ede",
-                  "parentUUID": "b8fac654-8b3c-4d69-bef2-be9512fa5dfd",
+                  "uuid": "d2544d7e-c270-42ca-a455-4c2330e0e1c8",
+                  "parentUUID": "a2fbc145-7196-4268-8668-430f959aee65",
                   "isHook": false,
                   "skipped": false
                 },
@@ -164,8 +164,8 @@
                   "context": null,
                   "code": "const mail=await readFile(fixtures+\"/time-changed/de_2023.eml\",\"utf-8\");const result=await Parser.parseMail(mail);assert.ok(result);assert.strictEqual(result.type,\"change\");assert.strictEqual(result.orderId,\"ecqpn6ux8sd\");assert.ok(result.time.from.isSame(moment.tz(\"2023-06-28T18:20:00.000\",\"Europe/Berlin\")),`${result.time.from.toJSON()} === 2023-06-28T18:20:00.000`);assert.ok(result.time.to.isSame(moment.tz(\"2023-06-28T19:30:00.000\",\"Europe/Berlin\")),`${result.time.to.toJSON()} === 2023-06-28T19:30:00.000`)",
                   "err": {},
-                  "uuid": "4f47d443-ef76-4722-b36e-068df0440ff2",
-                  "parentUUID": "b8fac654-8b3c-4d69-bef2-be9512fa5dfd",
+                  "uuid": "ca2bf08d-4645-434f-8b01-f88d2cac2750",
+                  "parentUUID": "a2fbc145-7196-4268-8668-430f959aee65",
                   "isHook": false,
                   "skipped": false
                 },
@@ -182,8 +182,8 @@
                   "context": null,
                   "code": "const mail=await readFile(fixtures+\"/time-changed/de_2024.eml\",\"utf-8\");const result=await Parser.parseMail(mail);assert.ok(result);assert.strictEqual(result.type,\"change\");assert.strictEqual(result.orderId,\"8grepd07bgz\");assert.ok(result.time.from.isSame(moment.tz(\"2024-01-10T15:30:00.000\",\"Europe/Berlin\")),`${result.time.from.toJSON()} === 2024-01-10T15:30:00.000`);assert.ok(result.time.to.isSame(moment.tz(\"2024-01-10T15:45:00.000\",\"Europe/Berlin\")),`${result.time.to.toJSON()} === 2024-01-10T15:45:00.000`)",
                   "err": {},
-                  "uuid": "4df66e71-a16d-4e79-bf53-7789c7f7a78e",
-                  "parentUUID": "b8fac654-8b3c-4d69-bef2-be9512fa5dfd",
+                  "uuid": "d4ce4bb0-64bd-4bcb-b79e-2a77ad4cb233",
+                  "parentUUID": "a2fbc145-7196-4268-8668-430f959aee65",
                   "isHook": false,
                   "skipped": false
                 },
@@ -200,8 +200,8 @@
                   "context": null,
                   "code": "const mail=await readFile(fixtures+\"/invoice/de_2020.eml\",\"utf-8\");const result=await Parser.parseMail(mail);assert.ok(result);assert.strictEqual(result.type,\"invoice\");assert.strictEqual(result.to,\"**********@tgtg-ical.sebbo.net\");assert.strictEqual(result.orderId,\"too38e9h7io\");assert.ok(result.invoicedAt.isSame(moment(\"2020-07-29T18:17:44.000Z\")))",
                   "err": {},
-                  "uuid": "0af6f037-8bf4-43a5-9ec1-52787606f83e",
-                  "parentUUID": "b8fac654-8b3c-4d69-bef2-be9512fa5dfd",
+                  "uuid": "e0f00c0b-bcb0-4812-9c2d-0293d3a72290",
+                  "parentUUID": "a2fbc145-7196-4268-8668-430f959aee65",
                   "isHook": false,
                   "skipped": false
                 },
@@ -218,8 +218,8 @@
                   "context": null,
                   "code": "const mail=await readFile(fixtures+\"/invoice/de_2021.eml\",\"utf-8\");const result=await Parser.parseMail(mail);assert.ok(result);assert.strictEqual(result.type,\"invoice\");assert.strictEqual(result.to,\"**********@tgtg-ical.sebbo.net\");assert.strictEqual(result.orderId,\"dfaxqeu6f8d\");assert.ok(result.invoicedAt.isSame(moment(\"2021-04-30T15:22:55.000Z\")))",
                   "err": {},
-                  "uuid": "baca7665-f9a5-46c4-8ef8-369e21257fa2",
-                  "parentUUID": "b8fac654-8b3c-4d69-bef2-be9512fa5dfd",
+                  "uuid": "54d0b08d-f808-4d2e-97c0-c85cd453b6a9",
+                  "parentUUID": "a2fbc145-7196-4268-8668-430f959aee65",
                   "isHook": false,
                   "skipped": false
                 },
@@ -227,7 +227,7 @@
                   "title": "should detect invoice mails (2023)",
                   "fullTitle": "Parser parseMail should detect invoice mails (2023)",
                   "timedOut": false,
-                  "duration": 7,
+                  "duration": 6,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -236,8 +236,8 @@
                   "context": null,
                   "code": "const mail=await readFile(fixtures+\"/invoice/de_2023.eml\",\"utf-8\");const result=await Parser.parseMail(mail);assert.ok(result);assert.strictEqual(result.type,\"invoice\");assert.strictEqual(result.to,\"**********@tgtg-ical.sebbo.net\");assert.strictEqual(result.orderId,\"rio3sec8wgb\");assert.ok(result.invoicedAt.isSame(moment(\"2023-07-24T17:29:16.000Z\")))",
                   "err": {},
-                  "uuid": "6d0d07c4-1b92-4ba6-8d58-074daf2a737a",
-                  "parentUUID": "b8fac654-8b3c-4d69-bef2-be9512fa5dfd",
+                  "uuid": "88d1d53b-fa7f-462c-94a2-cf969705cfba",
+                  "parentUUID": "a2fbc145-7196-4268-8668-430f959aee65",
                   "isHook": false,
                   "skipped": false
                 },
@@ -254,8 +254,8 @@
                   "context": null,
                   "code": "const mail=await readFile(fixtures+\"/cancellation/de_1.eml\",\"utf-8\");const result=await Parser.parseMail(mail);assert.ok(result);assert.strictEqual(result.type,\"cancel\");assert.strictEqual(result.to,\"**********@tgtg-ical.sebbo.net\");assert.strictEqual(result.orderId,\"gd3sypjntuz\");assert.ok(result.cancelledAt.isSame(moment(\"2023-07-05T17:23:43.000Z\")))",
                   "err": {},
-                  "uuid": "bbd2de00-ad83-4e4a-a4d8-56b21b302c99",
-                  "parentUUID": "b8fac654-8b3c-4d69-bef2-be9512fa5dfd",
+                  "uuid": "4064c0f6-0ece-45df-b714-7b5d4f68bd0b",
+                  "parentUUID": "a2fbc145-7196-4268-8668-430f959aee65",
                   "isHook": false,
                   "skipped": false
                 },
@@ -272,32 +272,32 @@
                   "context": null,
                   "code": "const mail=await readFile(fixtures+\"/cancellation/de_2.eml\",\"utf-8\");const result=await Parser.parseMail(mail);assert.ok(result);assert.strictEqual(result.type,\"cancel\");assert.strictEqual(result.to,\"**********@tgtg-ical.sebbo.net\");assert.strictEqual(result.orderId,\"q3uxig9diky\");assert.ok(result.cancelledAt.isSame(moment(\"2023-03-09T12:08:29.000Z\")))",
                   "err": {},
-                  "uuid": "69aa60c1-0cd4-4577-8a01-a40e5cb7631c",
-                  "parentUUID": "b8fac654-8b3c-4d69-bef2-be9512fa5dfd",
+                  "uuid": "50c54143-0199-4cac-b8e0-208b03e765d1",
+                  "parentUUID": "a2fbc145-7196-4268-8668-430f959aee65",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "ec1a2569-bd5a-42d7-85ad-26f9d7512603",
-                "af6b60b3-642f-4ca6-b9ff-0339c1b53110",
-                "187c0e55-e2ed-450c-b7fa-3c58dad1d0dd",
-                "8e1038c9-0bf2-48bc-99cd-67fada4ebbbe",
-                "12e7d1e3-a103-43fd-a9a6-583c28f378b7",
-                "b663eeb4-ebf7-435c-abe4-716cab531ede",
-                "4f47d443-ef76-4722-b36e-068df0440ff2",
-                "4df66e71-a16d-4e79-bf53-7789c7f7a78e",
-                "0af6f037-8bf4-43a5-9ec1-52787606f83e",
-                "baca7665-f9a5-46c4-8ef8-369e21257fa2",
-                "6d0d07c4-1b92-4ba6-8d58-074daf2a737a",
-                "bbd2de00-ad83-4e4a-a4d8-56b21b302c99",
-                "69aa60c1-0cd4-4577-8a01-a40e5cb7631c"
+                "e5413c46-ae9b-4f72-838d-e0faf2a97494",
+                "b0cd27cf-5514-4f1b-bc43-6f1b9d0ce199",
+                "48a719ae-0de8-4884-8036-7f6955273f22",
+                "84b310dc-51d5-4b66-8da5-b581df0edfcd",
+                "7f596dfd-2217-4884-af73-c52e78dcc1c8",
+                "d2544d7e-c270-42ca-a455-4c2330e0e1c8",
+                "ca2bf08d-4645-434f-8b01-f88d2cac2750",
+                "d4ce4bb0-64bd-4bcb-b79e-2a77ad4cb233",
+                "e0f00c0b-bcb0-4812-9c2d-0293d3a72290",
+                "54d0b08d-f808-4d2e-97c0-c85cd453b6a9",
+                "88d1d53b-fa7f-462c-94a2-cf969705cfba",
+                "4064c0f6-0ece-45df-b714-7b5d4f68bd0b",
+                "50c54143-0199-4cac-b8e0-208b03e765d1"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 107,
+              "duration": 104,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
@@ -325,7 +325,7 @@
   ],
   "meta": {
     "mocha": {
-      "version": "11.1.0"
+      "version": "11.5.0"
     },
     "mochawesome": {
       "options": {

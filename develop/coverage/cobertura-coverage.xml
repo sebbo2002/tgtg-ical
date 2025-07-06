@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="925" lines-covered="435" line-rate="0.4702" branches-valid="90" branches-covered="57" branch-rate="0.6333" timestamp="1751655928172" complexity="0" version="0.1">
+<coverage lines-valid="925" lines-covered="435" line-rate="0.4702" branches-valid="90" branches-covered="57" branch-rate="0.6333" timestamp="1751815701625" complexity="0" version="0.1">
   <sources>
     <source>/home/runner/work/tgtg-ical/tgtg-ical</source>
   </sources>

@@ -20,7 +20,7 @@ jobs:
       - name: ☁️ Checkout Project
         uses: actions/checkout@v5
       - name: 🔧 Setup node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node }}
           cache: 'npm'
@@ -37,7 +37,7 @@ jobs:
       - name: ☁️ Checkout Project
         uses: actions/checkout@v5
       - name: 🔧 Setup node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version: 23.x
           cache: 'npm'
@@ -56,7 +56,7 @@ jobs:
       - name: ☁️ Checkout Project
         uses: actions/checkout@v5
       - name: 🔧 Setup node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           cache: 'npm'
       - name: 📦 Install dependencies
@@ -71,10 +71,11 @@ jobs:
     concurrency: release
     permissions:
       contents: write
+      id-token: write
       issues: write
       packages: write
+      pages: write
       pull-requests: write
-      id-token: write
     needs:
       - coverage
       - tests
@@ -84,10 +85,23 @@ jobs:
       - name: ☁️ Checkout Project
         uses: actions/checkout@v5
       - name: 🔧 Setup node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version: 22.x
           cache: 'npm'
+      - name: 📦 Ensure npm ≥ 11.5.1
+        run: |
+          REQUIRED_VERSION="11.5.1"
+          CURRENT_VERSION=$(npm -v)
+          echo "Current npm version: $CURRENT_VERSION"
+
+          SMALLEST=$(printf '%s\n' "$CURRENT_VERSION" "$REQUIRED_VERSION" | sort -V | head -n1)
+          if [ "$CURRENT_VERSION" = "$REQUIRED_VERSION" ] || [ "$SMALLEST" = "$REQUIRED_VERSION" ]; then
+            echo "npm version ($CURRENT_VERSION) meets the requirement ($REQUIRED_VERSION)."
+          else
+            echo "Updating npm to latest version..."
+            npm install -g npm@latest
+          fi
       - name: 🔧 Setup regclient
         run: |
           mkdir -p "$HOME/.local/bin"
@@ -102,10 +116,10 @@ jobs:
         run: BRANCH=${GITHUB_REF#refs/heads/} npx semantic-release
         env:
           GH_REPO: ${{ github.repository }}
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_OWNER: ${{ github.repository_owner }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
+          npm_config_access: public
       - name: 🔐 Add SSH key
         if: ${{ github.ref == 'refs/heads/develop' }}
         run: |

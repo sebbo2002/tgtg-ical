@@ -14,4 +14,4 @@ rsync -avzr --delete \
     ./ ${DEPLOYMENT_URL:-tgtg-ical.sebbo.net}:~/apps/tgtg-ical/package/
 
 ssh ${DEPLOYMENT_URL:-tgtg-ical.sebbo.net} \
-    "cd ~/apps/tgtg-ical/package/ && npm ci && supervisorctl restart tgtg-ical && tail -n 50 ~/logs/supervisord.log"
+    "cd ~/apps/tgtg-ical/package/ && npm ci && npm cache clean --force && supervisorctl restart tgtg-ical && tail -n 50 ~/logs/supervisord.log"

@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 'use strict';
 
-import type { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
-
 import cookieParser from 'cookie-parser';
 import express, { type Express, type Response } from 'express';
 import { Server } from 'http';
@@ -42,7 +40,7 @@ class AppServer {
         new AppServer();
     }
 
-    handleError(error: PrismaClientKnownRequestError | unknown, res: Response) {
+    handleError(error: unknown, res: Response) {
         if (
             error &&
             typeof error === 'object' &&

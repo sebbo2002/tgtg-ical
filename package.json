@@ -8,7 +8,7 @@
         "url": "https://github.com/sebbo2002/tgtg-ical/issues"
     },
     "dependencies": {
-        "@criblinc/docker-names": "^1.2.1",
+        "@criblinc/docker-names": "^1.2.2",
         "@prisma/adapter-mariadb": "^7.1.0",
         "@prisma/client": "^7.1.0",
         "@sentry/node": "^10.25.0",

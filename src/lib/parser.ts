@@ -1,9 +1,9 @@
-import type { Location, Mail, User } from '@prisma/client';
-
 import { captureException } from '@sentry/node';
 import he from 'he';
 import { type ParsedMail, simpleParser } from 'mailparser';
 import moment from 'moment-timezone';
+
+import type { Location, Mail, User } from './db.js';
 
 import config from './config.js';
 import Config from './config.js';

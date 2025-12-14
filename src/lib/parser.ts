@@ -241,13 +241,15 @@ export default class Parser {
                 ],
             },
         });
-
         for (const mail of mails) {
             await this.handleMail(mail);
         }
 
         // Cleanup Users
-        await prisma.user.deleteMany({
+        const users = await prisma.user.findMany({
+            orderBy: {
+                lastSeenAt: 'asc',
+            },
             where: {
                 OR: [
                     {
@@ -264,8 +266,15 @@ export default class Parser {
                         },
                     },
                 ],
-            },
+            }
         });
+        for (const user of users) {
+            await prisma.user.delete({
+                where: {
+                    id: user.id,
+                },
+            });
+        }
 
         // Cleanup Events
         await prisma.event.deleteMany({

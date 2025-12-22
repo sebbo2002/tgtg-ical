@@ -1,4 +1,4 @@
-FROM node:lts-alpine@sha256:7e0bd0460b26eb3854ea5b99b887a6a14d665d14cae694b78ae2936d14b2befb as build-container
+FROM node:lts-alpine@sha256:c921b97d4b74f51744057454b306b418cf693865e73b8100559189605f6955b8 as build-container
 ARG NODE_ENV=production
 ENV NODE_ENV=$NODE_ENV
 WORKDIR "/app"

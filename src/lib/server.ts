@@ -1,11 +1,11 @@
 import { generateName, generateNameWithNumber } from '@criblinc/docker-names';
-import { User } from '@prisma/client';
 import { readFile } from 'fs/promises';
 import { ICalAlarmType, ICalCalendar, ICalEventStatus } from 'ical-generator';
 import moment from 'moment-timezone';
 import { randomUUID } from 'node:crypto';
 
 import Config from './config.js';
+import { type User } from './db.js';
 import prisma from './db.js';
 import { DEFAULT_EMOJI } from './emoji.js';
 

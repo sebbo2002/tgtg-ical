@@ -9,6 +9,10 @@ if [ ! -d "./dist" ]; then
     exit 1;
 fi;
 
+if [ ! -d "./src/prisma/prisma" ]; then
+    npx prisma generate
+fi;
+
 rsync -avzr --delete \
     --exclude node_modules --exclude .git --exclude .idea --exclude .nyc_output --exclude docs \
     ./ ${DEPLOYMENT_URL:-tgtg-ical.sebbo.net}:~/apps/tgtg-ical/package/

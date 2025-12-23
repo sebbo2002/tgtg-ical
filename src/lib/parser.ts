@@ -1,9 +1,9 @@
-import type { Location, Mail, User } from '@prisma/client';
-
 import { captureException } from '@sentry/node';
 import he from 'he';
 import { type ParsedMail, simpleParser } from 'mailparser';
 import moment from 'moment-timezone';
+
+import type { Location, Mail, User } from './db.js';
 
 import config from './config.js';
 import Config from './config.js';
@@ -241,13 +241,15 @@ export default class Parser {
                 ],
             },
         });
-
         for (const mail of mails) {
             await this.handleMail(mail);
         }
 
         // Cleanup Users
-        await prisma.user.deleteMany({
+        const users = await prisma.user.findMany({
+            orderBy: {
+                lastSeenAt: 'asc',
+            },
             where: {
                 OR: [
                     {
@@ -264,8 +266,15 @@ export default class Parser {
                         },
                     },
                 ],
-            },
+            }
         });
+        for (const user of users) {
+            await prisma.user.delete({
+                where: {
+                    id: user.id,
+                },
+            });
+        }
 
         // Cleanup Events
         await prisma.event.deleteMany({

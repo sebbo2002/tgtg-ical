@@ -1,3 +1,15 @@
+# [3.1.0](https://github.com/sebbo2002/tgtg-ical/compare/v3.0.9...v3.1.0) (2025-12-23)
+
+### Bug Fixes
+
+- Fix broken import due to Prisma v7 upgrade ([3939688](https://github.com/sebbo2002/tgtg-ical/commit/393968891956df247e84fb8aa16eb2e8a2066942))
+
+### Features
+
+- Cleanup users one after another ([423343a](https://github.com/sebbo2002/tgtg-ical/commit/423343a847e3f3e5bc31ffa3cd4caaa362e0db8f))
+- Disconnect database after cleanup ([c74e13a](https://github.com/sebbo2002/tgtg-ical/commit/c74e13a413b243629ad254d03688d4e39fc9628f))
+- Upgrade to Prisma v7 ([a5023c3](https://github.com/sebbo2002/tgtg-ical/commit/a5023c3c0c4a2aca9bcc7fb07773f3ec22ed0fb6))
+
 ## [3.0.9](https://github.com/sebbo2002/tgtg-ical/compare/v3.0.8...v3.0.9) (2025-12-07)
 
 ## [3.0.8](https://github.com/sebbo2002/tgtg-ical/compare/v3.0.7...v3.0.8) (2025-11-15)

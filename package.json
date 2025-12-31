@@ -44,7 +44,7 @@
         "mocha": "^11.7.5",
         "mochawesome": "^7.1.4",
         "prettier": "^3.7.4",
-        "prisma": "^7.1.0",
+        "prisma": "^7.2.0",
         "semantic-release": "^25.0.2",
         "semantic-release-license": "^1.0.3",
         "source-map-support": "^0.5.21",

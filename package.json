@@ -11,7 +11,7 @@
         "@criblinc/docker-names": "^1.2.2",
         "@prisma/adapter-mariadb": "^7.4.0",
         "@prisma/client": "^7.4.0",
-        "@sentry/node": "^10.36.0",
+        "@sentry/node": "^10.39.0",
         "cookie-parser": "^1.4.6",
         "express": "^5.2.1",
         "he": "^1.2.0",

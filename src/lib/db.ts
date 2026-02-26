@@ -21,4 +21,4 @@ const prisma = new PrismaClient({
 });
 
 export default prisma;
-export * from '../prisma/prisma/client.js'
+export * from '../prisma/prisma/client.js';

@@ -266,7 +266,7 @@ export default class Parser {
                         },
                     },
                 ],
-            }
+            },
         });
         for (const user of users) {
             await prisma.user.delete({
@@ -585,7 +585,7 @@ export default class Parser {
             throw new Error('Date, time or address not found (2)!');
         }
 
-        let amount = 0;
+        let amount: number | undefined;
         if (matches[6]) {
             amount = parseInt(matches[6][1], 10);
         } else if (matches[7]) {
@@ -597,7 +597,7 @@ export default class Parser {
             throw new Error('Amount (1) is not a number!');
         }
 
-        let price = 0;
+        let price: number | undefined;
         if (matches[8]) {
             price = parseInt(matches[8][1].replace(/[.|,]/g, ''));
         } else if (matches[9]) {

@@ -1,0 +1,618 @@
+Return-Path: <pm_bounces@pm.toogoodtogo.com>
+Delivered-To: *********@sebbo.net
+Received: from director-04.heinlein-hosting.de ([80.241.60.212])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	by dobby20b.heinlein-hosting.de with LMTPS
+	id 6PeUJqq102Tw6AAA3W3OMw
+	(envelope-from <pm_bounces@pm.toogoodtogo.com>)
+	for <*********@sebbo.net>; Wed, 09 Aug 2023 17:50:02 +0200
+Received: from mx1.mailbox.org ([80.241.60.212])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	by director-04.heinlein-hosting.de with LMTPS
+	id eJmRJaq102S1OwAAgupzMw
+	(envelope-from <pm_bounces@pm.toogoodtogo.com>)
+	for <*********@sebbo.net>; Wed, 09 Aug 2023 17:50:02 +0200
+Authentication-Results: spamfilter02.heinlein-hosting.de (amavisd-new);
+	dkim=pass (1024-bit key) header.d=pm.mtasv.net header.b=RUaB3iQp;
+	dkim=pass (1024-bit key) header.d=toogoodtogo.com header.b=CaN6Sd7h
+Received: from schuster.uberspace.de (schuster.uberspace.de [185.26.156.172])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mx1.mailbox.org (Postfix) with ESMTPS id BDEB44040F
+	for <*********@sebbo.net>; Wed,  9 Aug 2023 17:49:55 +0200 (CEST)
+Received: (qmail 11203 invoked by uid 1212); 9 Aug 2023 15:49:55 -0000
+Delivered-To: *********@schuster.uberspace.de
+Received: (qmail 11199 invoked by uid 1212); 9 Aug 2023 15:49:55 -0000
+Delivered-To: *********-**********@tgtg-ical.sebbo.net
+Received: (qmail 11196 invoked by uid 990); 9 Aug 2023 15:49:55 -0000
+Received: from sc-ord-mta113.mtasv.net (sc-ord-mta113.mtasv.net [50.31.156.113])
+	by schuster.uberspace.de (Haraka/3.0.1) with ESMTPS id D9669EF2-18FE-4BBA-A4D6-A35E051E1213.1
+	envelope-from <pm_bounces@pm.toogoodtogo.com>
+	tls TLS_AES_256_GCM_SHA384;
+	Wed, 09 Aug 2023 17:49:49 +0200
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=pm20230619; d=pm.mtasv.net;
+ h=From:Date:Subject:Message-Id:Reply-To:To:MIME-Version:Content-Type:
+ Content-Transfer-Encoding:Date:From:Message-ID:Reply-To:Sender:Subject:To:CC;
+ bh=NF8YLv969y1iiCYuTA4i8/Rfxo0=;
+ b=RUaB3iQpPZeGN+7zU4LpkDB1XuGpj/Sc1zYN78aXblINZWapv55X0AOdKWjtm5x4Z7ltiekJnEjK
+   jVmftNkM5J6BwzttcMa4J+WzzL0Kd4ZORyv1jVmwSMIcMph43CQFaIkJfCU2g7b5CAAuN91We7EK
+   kPLr7cCMJcAwc1xK59M=
+Received: by sc-ord-mta113.mtasv.net id hqeqpe34o8gf for <**********@tgtg-ical.sebbo.net>; Wed, 9 Aug 2023 11:49:43 -0400 (envelope-from <pm_bounces@pm.toogoodtogo.com>)
+X-PM-IP: 50.31.156.113
+X-IADB-IP: 50.31.156.113
+X-IADB-IP-REVERSE: 113.156.31.50
+DKIM-Signature: v=1; a=rsa-sha256; d=toogoodtogo.com; s=20160906101302pm;
+	c=relaxed/relaxed; i=no-reply@toogoodtogo.com; t=1691596180;
+	h=date:date:from:from:message-id:reply-to:reply-to:sender:subject:subject:to:
+	to:cc:feedback-id:mime-version:content-type:content-transfer-encoding;
+	bh=4nvlhX0WpJPWp/k1G2fu+cbD7t/0UBc2oFwP+B8aKxI=;
+	b=CaN6Sd7hJHeVCK9UFD72U1lZwdP0JUlvXe7C5Fw0RhS/2jomDgluTibkrLCRlRdO/IOZjEL2+ZK
+	JZGK5g4mW68+Wk13XLa406QQbwS4YM/CL6KAMrNq2//h/gtatZlVOENVnXy+g3P9MOgXTPI/L2sT3
+	PMqspXFvplqh+SWLLgk=
+From: Too Good To Go <no-reply@toogoodtogo.com>
+Date: Wed, 09 Aug 2023 15:49:40 +0000
+Subject: You have cancelled your order (ys4uu3nhmvc)
+Message-Id: <015a80cc-b03f-4c78-aa30-eee3acbfc3f2@mtasv.net>
+Reply-To: Too Good To Go <no-reply@toogoodtogo.com>
+To: **********@tgtg-ical.sebbo.net
+Feedback-ID: s2291855-Y29uc3VtZXJfb3JkZXJfcmV2ZXJ0ZWQ=:s2291855:a119677:postmark
+X-Complaints-To: abuse@postmarkapp.com
+X-PM-Message-Id: 015a80cc-b03f-4c78-aa30-eee3acbfc3f2
+X-PM-Tag: consumer_order_reverted
+X-PM-RCPT: |bTB8MTE5Njc3fDIyOTE4NTV8bGNramZxYWN1eWh0YWplaW11ZnVAZS5zZWJiby5uZXQ=|
+X-PM-Message-Options: v1;1.ZFHt6vEmdU5ayjccitIYJA.Jy3Q2o4a1MXDHtr9AyU6cFZvL8M3423-CfxCOHJl1kBnHwt0YZttaOC4WLKKndDjkVtOaGjYRA2Og-2C4F2iRd2vxND1xwjt5rRycdAdDg3BmsPLTjKsuNWZc8Xmg3xYFm11KnXfOOzlpDs3S2xWMrW4O4hlLEX98tkvZWz9uIfhDjedinm4fw-Am3tT4WF0pAzuWYaPJiyGCpJEb8uNpQIu5CoZ0lHjZObQ3YMxwCVdVSHswpTRukx14Y9yXqAJ
+MIME-Version: 1.0
+X-PM-MTA-Pool: transactional-1
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Rspamd-Bar: /
+X-Rspamd-Report: R_DKIM_ALLOW(-0.2) R_SPF_ALLOW(-0.2) DMARC_POLICY_ALLOW(-0.5) MIME_HTML_ONLY(0.2) FORGED_SENDER(0.3)
+X-MBO-SPAM-Probability: 
+X-Rspamd-Score: -7.69 / 15.00 / 15.00
+X-Rspamd-Queue-Id: BDEB44040F
+
+<!doctype html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-mi=
+crosoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+
+<head>
+  <title></title>
+  <!--[if !mso]><!-->
+  <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+  <!--<![endif]-->
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUT=
+F-8">
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-sca=
+le=3D1">
+  <style type=3D"text/css">
+    #outlook a {
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+
+    table,
+    td {
+      border-collapse: collapse;
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+    }
+
+    img {
+      border: 0;
+      height: auto;
+      line-height: 100%;
+      outline: none;
+      text-decoration: none;
+      -ms-interpolation-mode: bicubic;
+    }
+
+    p {
+      display: block;
+      margin: 13px 0;
+    }
+
+  </style>
+  <!--[if mso]>
+    <noscript>
+    <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    </noscript>
+    <![endif]-->
+  <!--[if lte mso 11]>
+    <style type=3D"text/css">
+      .mj-outlook-group-fix { width:100% !important; }
+    </style>
+    <![endif]-->
+  <!--[if !mso]><!-->
+  <link href=3D"https://fonts.googleapis.com/css?family=3DOpen+Sans&di=
+splay=3Dswap" rel=3D"stylesheet" type=3D"text/css">
+  <style type=3D"text/css">
+    @import url(https://fonts.googleapis.com/css?family=3DOpen+Sans&di=
+splay=3Dswap);
+
+  </style>
+  <!--<![endif]-->
+  <style type=3D"text/css">
+    @media only screen and (min-width:480px) {
+      .mj-column-per-100 {
+        width: 100% !important;
+        max-width: 100%;
+      }
+    }
+
+  </style>
+  <style media=3D"screen and (min-width:480px)">
+    .moz-text-html .mj-column-per-100 {
+      width: 100% !important;
+      max-width: 100%;
+    }
+
+  </style>
+  <style type=3D"text/css">
+  </style>
+  <style type=3D"text/css">
+  </style>
+</head>
+
+<body style=3D"word-spacing:normal;background-color:#fcf8f2;">
+  <div style=3D"background-color:#fcf8f2;">
+    <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"wid=
+th:600px;" width=3D"600" ><tr><td style=3D"line-height:0px;font-size:0=
+px;mso-line-height-rule:exactly;"><![endif]-->
+    <div style=3D"margin:0px auto;max-width:600px;">
+      <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" style=3D"width:100%;">
+        <tbody>
+          <tr>
+            <td style=3D"direction:ltr;font-size:0px;padding:25px;text=
+-align:center;">
+              <!--[if mso | IE]><table role=3D"presentation" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0"><tr></tr></table><![endif]-->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!--[if mso | IE]></td></tr></table><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"presenta=
+tion" style=3D"width:600px;" width=3D"600" bgcolor=3D"#ffffff" ><tr><t=
+d style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;=
+"><![endif]-->
+    <div style=3D"background:#ffffff;background-color:#ffffff;margin:0=
+px auto;max-width:600px;">
+      <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" style=3D"background:#ffffff;background-=
+color:#ffffff;width:100%;">
+        <tbody>
+          <tr>
+            <td style=3D"direction:ltr;font-size:0px;padding:15px 0px;=
+padding-top:30px;text-align:center;">
+              <!--[if mso | IE]><table role=3D"presentation" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"ve=
+rtical-align:middle;width:600px;" ><![endif]-->
+              <div class=3D"mj-column-per-100 mj-outlook-group-fix" st=
+yle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-bloc=
+k;vertical-align:middle;width:100%;">
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" width=3D"100%">
+                  <tbody>
+                    <tr>
+                      <td style=3D"vertical-align:middle;padding:0px;"=
+>
+                        <table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation" style width=3D"100%">
+                          <tbody>
+                            <img src=3D"https://images.tgtg.ninja/emai=
+lassets/logo_green_280x224.png" width=3D"120" style=3D"display:block; =
+max-height:120px; max-width:120px; display: block; margin-left: auto; =
+ margin-right: auto;  width: 120px;">
+                            <tr>
+                              <td align=3D"center" style=3D"font-size:=
+0px;padding:0px;padding-top:15px;word-break:break-word;">
+                                <p style=3D"border-top:solid 1px #C9CE=
+D2;font-size:1px;margin:0px auto;width:100%;">
+                                </p>
+                                <!--[if mso | IE]><table align=3D"cent=
+er" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-t=
+op:solid 1px #C9CED2;font-size:1px;margin:0px auto;width:600px;" role=3D=
+"presentation" width=3D"600px" ><tr><td style=3D"height:0;line-height:=
+0;"> &nbsp;
+</td></tr></table><![endif]-->
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!--[if mso | IE]></td></tr></table><![endif]-->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!--[if mso | IE]></td></tr></table><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"presenta=
+tion" style=3D"width:600px;" width=3D"600" bgcolor=3D"#ffffff" ><tr><t=
+d style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;=
+"><![endif]-->
+    <div style=3D"background:#ffffff;background-color:#ffffff;margin:0=
+px auto;max-width:600px;">
+      <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" style=3D"background:#ffffff;background-=
+color:#ffffff;width:100%;">
+        <tbody>
+          <tr>
+            <td style=3D"direction:ltr;font-size:0px;padding:0px;text-=
+align:center;">
+              <!--[if mso | IE]><table role=3D"presentation" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"basecontainer=
+-outlook" style=3D"vertical-align:top;width:600px;" ><![endif]-->
+              <div class=3D"mj-column-per-100 mj-outlook-group-fix bas=
+econtainer" style=3D"font-size:0px;text-align:left;direction:ltr;displ=
+ay:inline-block;vertical-align:top;width:100%;">
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" width=3D"100%">
+                  <tbody>
+                    <tr>
+                      <td style=3D"vertical-align:top;padding:30px 12%
+          30px 12%;">
+                        <table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation" style width=3D"100%">
+                          <tbody>
+                            <tr>
+                              <td align=3D"left" class=3D"innercontain=
+er" style=3D"font-size:0px;padding:0px;word-break:break-word;">
+                                <div style=3D"font-family:Open Sans, s=
+ans-serif, arial, verdana;font-size:13px;line-height:1;text-align:left=
+;color:#000000;">
+                                  <div><!doctype html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-mi=
+crosoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+
+<head>
+  <title></title>
+  <!--[if !mso]><!-->
+  <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+  <!--<![endif]-->
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUT=
+F-8">
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-sca=
+le=3D1">
+  <style type=3D"text/css">
+    #outlook a {
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+
+    table,
+    td {
+      border-collapse: collapse;
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+    }
+
+    img {
+      border: 0;
+      height: auto;
+      line-height: 100%;
+      outline: none;
+      text-decoration: none;
+      -ms-interpolation-mode: bicubic;
+    }
+
+    p {
+      display: block;
+      margin: 13px 0;
+    }
+
+  </style>
+  <!--[if mso]>
+    <noscript>
+    <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    </noscript>
+    <![endif]-->
+  <!--[if lte mso 11]>
+    <style type=3D"text/css">
+      .mj-outlook-group-fix { width:100% !important; }
+    </style>
+    <![endif]-->
+  <!--[if !mso]><!-->
+  <link href=3D"https://fonts.googleapis.com/css?family=3DOpen+Sans&di=
+splay=3Dswap" rel=3D"stylesheet" type=3D"text/css">
+  <link href=3D"https://fonts.googleapis.com/css2?family=3DPoppins:wgh=
+t@700;900&display=3Dswap" rel=3D"stylesheet" type=3D"text/css">
+  <style type=3D"text/css">
+    @import url(https://fonts.googleapis.com/css?family=3DOpen+Sans&di=
+splay=3Dswap);
+    @import url(https://fonts.googleapis.com/css2?family=3DPoppins:wgh=
+t@700;900&display=3Dswap);
+
+  </style>
+  <!--<![endif]-->
+  <style type=3D"text/css">
+    @media only screen and (min-width:480px) {
+      .mj-column-per-100 {
+        width: 100% !important;
+        max-width: 100%;
+      }
+    }
+
+  </style>
+  <style media=3D"screen and (min-width:480px)">
+    .moz-text-html .mj-column-per-100 {
+      width: 100% !important;
+      max-width: 100%;
+    }
+
+  </style>
+  <style type=3D"text/css">
+    @media only screen and (max-width:479px) {
+      table.mj-full-width-mobile {
+        width: 100% !important;
+      }
+
+      td.mj-full-width-mobile {
+        width: auto !important;
+      }
+    }
+
+  </style>
+  <style type=3D"text/css">
+  </style>
+</head>
+
+<body style=3D"word-spacing:normal;">
+  <div style=3D"">
+    <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"width:100%;">
+      <tbody>
+        <tr>
+          <td>
+            <!--[if mso | IE]><table align=3D"center" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"presentation" styl=
+e=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-height:0px;fon=
+t-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+            <div style=3D"margin:0px auto;max-width:600px;">
+              <table align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" role=3D"presentation" style=3D"width:100%;">
+                <tbody>
+                  <tr>
+                    <td style=3D"direction:ltr;font-size:0px;padding:2=
+0px 0;text-align:center;">
+                      <!--[if mso | IE]><table role=3D"presentation" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" sty=
+le=3D"vertical-align:top;width:600px;" ><![endif]-->
+                      <div class=3D"mj-column-per-100 mj-outlook-group=
+-fix" style=3D"font-size:0px;text-align:left;direction:ltr;display:inl=
+ine-block;vertical-align:top;width:100%;">
+                        <table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation" style=3D"vertical-align:top;" width=3D=
+"100%">
+                          <tbody>
+                            <tr>
+                              <td align=3D"center" class=3D"mainImage"=
+ style=3D"font-size:0px;padding:10px 25px;padding-top:0px;padding-bott=
+om:20px;word-break:break-word;">
+                                <table border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" style=3D"border-collapse:colla=
+pse;border-spacing:0px;">
+                                  <tbody>
+                                    <tr>
+                                      <td style=3D"width:150px;">
+                                        <img src=3D"https://images.tgt=
+g.ninja/emailassets/v2/sad_smiley_icon_2x.png" style=3D"border:0;displ=
+ay:block;outline:none;text-decoration:none;height:auto;width:100%;font=
+-size:13px;" width=3D"150" height=3D"auto" />
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td align=3D"center" style=3D"font-size:=
+0px;padding:10px 25px;padding-bottom:40px;word-break:break-word;">
+                                <div style=3D"font-family:Poppins, san=
+s-serif;font-size:24px;font-weight:700;line-height:130%;text-align:cen=
+ter;color:#114d4d;"><span>Hello Sebastian,</span></div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td align=3D"center" style=3D"font-size:=
+0px;padding:15px 25px;word-break:break-word;">
+                                <div style=3D"font-family:Open Sans, s=
+ans-serif, arial, verdana;font-size:16px;line-height:150%;text-align:c=
+enter;color:#1F2325;"><span>This email is regarding your order from Hi=
+lton - Berlin (Fr=C3=BChst=C3=BCck) on 09/08/2023.</span>
+                                  <span>We confirm that your order has=
+ been cancelled.</span>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td align=3D"center" style=3D"font-size:=
+0px;padding:15px 25px;word-break:break-word;">
+                                <div style=3D"font-family:Open Sans, s=
+ans-serif, arial, verdana;font-size:16px;line-height:150%;text-align:c=
+enter;color:#1F2325;">
+                                  <span>Please note that the amount we=
+ had reserved for your order had not yet been taken from your account.=
+ We&#39;ve cancelled the pending payment, and the reservation will the=
+refore be removed from your account within a few business days.</span>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td align=3D"center" style=3D"font-size:=
+0px;padding:15px 25px;word-break:break-word;">
+                                <div style=3D"font-family:Open Sans, s=
+ans-serif, arial, verdana;font-size:16px;line-height:150%;text-align:c=
+enter;color:#1F2325;"></div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td align=3D"center" style=3D"font-size:=
+0px;padding:15px 25px;word-break:break-word;">
+                                <div style=3D"font-family:Open Sans, s=
+ans-serif, arial, verdana;font-size:16px;line-height:150%;text-align:c=
+enter;color:#1F2325;"><span>Thank you,</span></div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td align=3D"center" style=3D"font-size:=
+0px;padding:15px 25px;word-break:break-word;">
+                                <div style=3D"font-family:Open Sans, s=
+ans-serif, arial, verdana;font-size:16px;line-height:150%;text-align:c=
+enter;color:#1F2325;"><span>The Too Good To Go Team</span></div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <!--[if mso | IE]></td></tr></table><![endif]-->
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!--[if mso | IE]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+
+</html>
+</div>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!--[if mso | IE]></td></tr></table><![endif]-->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!--[if mso | IE]></td></tr></table><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"presenta=
+tion" style=3D"width:600px;" width=3D"600" bgcolor=3D"#fcf8f2" ><tr><t=
+d style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;=
+"><![endif]-->
+    <div style=3D"background:#fcf8f2;background-color:#fcf8f2;margin:0=
+px auto;max-width:600px;">
+      <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" style=3D"background:#fcf8f2;background-=
+color:#fcf8f2;width:100%;">
+        <tbody>
+          <tr>
+            <td style=3D"direction:ltr;font-size:0px;padding:10px;text=
+-align:center;">
+              <!--[if mso | IE]><table role=3D"presentation" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"ve=
+rtical-align:top;width:580px;" ><![endif]-->
+              <div class=3D"mj-column-per-100 mj-outlook-group-fix" st=
+yle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-bloc=
+k;vertical-align:top;width:100%;">
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" width=3D"100%">
+                  <tbody>
+                    <tr>
+                      <td style=3D"vertical-align:top;padding:0px;">
+                        <table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation" style width=3D"100%">
+                          <tbody>
+                            <tr>
+                              <td align=3D"center" style=3D"font-size:=
+0px;padding:5px 25px;word-break:break-word;">
+                                <div style=3D"font-family:Open Sans, s=
+ans-serif, arial, verdana;font-size:12px;font-weight:bold;line-height:=
+1;text-align:center;color:#788995;"><a style=3D"color: inherit; text-d=
+ecoration: underline;" href=3D"https://share.toogoodtogo.com/contactus=
+/https%3A%2F%2Ftoogoodtogo.com%2Fde%2Fsupport%2Fuser">Contact us</a> |=
+ <a style=3D"color: inherit; text-decoration: underline;" href=3D"http=
+s://static.apptoogoodtogo.com/general-terms-conditions/de-de/index.htm=
+l">Terms &amp; Conditions</a> | <a style=3D"color: inherit; text-decor=
+ation: underline;" href=3D"https://toogoodtogo.com/de/privacy-policy">=
+Privacy Policy</a></div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td align=3D"center" style=3D"font-size:=
+0px;padding:5px 25px;padding-top:7px;padding-bottom:7px;word-break:bre=
+ak-word;">
+                                <div style=3D"font-family:Open Sans, s=
+ans-serif, arial, verdana;font-size:12px;font-weight:bold;line-height:=
+1;text-align:center;color:#788995;">
+                                  <p style=3D"margin-top:0px;margin-bo=
+ttom:0px;">
+                                    <span>If you would like to unsubsc=
+ribe from these emails in the future, <a href=3D"https://space.toogood=
+togo.com/privacy" style=3D"color:#788995;text-decoration:underline;">c=
+lick here</a>.</span>
+                                   =20
+                                  </p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td align=3D"center" style=3D"font-size:=
+0px;padding:5px 25px;word-break:break-word;">
+                                <div style=3D"font-family:Open Sans, s=
+ans-serif, arial, verdana;font-size:12px;font-weight:bold;line-height:=
+1;text-align:center;color:#788995;">
+                                  <p style=3D"margin-top:0px;">Too Goo=
+d To Go - K=C3=B6penicker Stra=C3=9Fe 154 A - 10997 Berlin - DE</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!--[if mso | IE]></td></tr></table><![endif]-->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!--[if mso | IE]></td></tr></table><![endif]-->
+  </div>
+</body>
+
+</html>

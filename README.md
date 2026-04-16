@@ -1,48 +1,40 @@
-# template
+# tgtg-ical
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
 
-Here would be a very short description of the project. So in this example it would be a short information that this is
-a template that I use to start new projects and services.
-
-## 🚨 Template Usage Checklist
-
-- [ ] Update project name in `package.json`
-- [ ] Create `main` and `develop` branches
-- [ ] Set `develop` as default branch
-- [ ] Create Docker Repository
-    - [ ] Add Repository Description
-    - [ ] Add secret: `DOCKERHUB_TOKEN`
-- [ ] Create npm Repository with `npm publish --access public`
-    - [ ] Add secret: `NPM_TOKEN`
-- [ ] Go through repo settings
-    - [ ] Add `main` protected branch
-        - Require a pull request before merging
-        - Require `Release` status checks to pass before merging
-        - Lock branch
+A small server that receives mails from TGTG, parses them and generates an iCal feed from them.
 
 ## 📦 Installation
 
-    git clone https://github.com/sebbo2002/template.git
-    cd ./template
+    git clone https://github.com/sebbo2002/tgtg-ical.git
+    cd ./tgtg-ical
+
+    echo 'DATABASE_URL="mysql://root@localhost:3306/tgtg-ical"' > .env
 
     npm install
-
-## ⚡️ Quick Start
-
-This is where it would normally say how to use the project.
-This could be a code example for a library or instructions on how to use a CLI tool.
-
-## 📑 API-Reference
-
-Is there an API that needs to be documented? Then here would be a nice place for it. If there is external documentation,
-you can link it here ([example](https://github.com/sebbo2002/ical-generator/#-api-reference)).
+    npx prisma migrate deploy
 
 ## 🙋 FAQ
 
-### What's `1` + `2`
+### How does this work?
 
-It's `3` 🎉
+With the help of tgtg-ical you can generate a personal email address and a corresponding calendar feed. If you store
+this email address at Too Good To Go as an email address for notifications or forward the messages (e.g. via a filter
+rule), collection appointments will be displayed in the corresponding calendar feed.
+
+### Which languages are supported?
+
+Currently only German and English are supported. If you want to add another language, feel free to create a pull request.
+
+### How long are emails stored?
+
+In the best case, the incoming e-mail can be completely analyzed and is then deleted directly. Then only the information
+needed to provide the calendar is stored. If the analysis fails, the email is kept for manual analysis and deleted after
+two weeks at the latest.
+
+### Which databases are supported?
+
+We use [Prisma](https://www.prisma.io/) as ORM. All databases supported by Prisma should therefore work with tgtg-ical.
 
 ## 🙆🏼‍♂️ Copyright and license
 

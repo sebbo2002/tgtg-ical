@@ -1,7 +1,6 @@
-import { defineConfig } from 'tsup';
+import { defineConfig } from 'tsdown';
 
 export default defineConfig({
-    clean: true,
     dts: true,
     entry: ['src/bin/inhale-mail.ts', 'src/bin/cleanup.ts', 'src/bin/start.ts'],
     format: ['esm'],

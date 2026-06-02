@@ -1,3 +1,5 @@
+## [3.1.7](https://github.com/sebbo2002/tgtg-ical/compare/v3.1.6...v3.1.7) (2026-06-02)
+
 ## [3.1.6](https://github.com/sebbo2002/tgtg-ical/compare/v3.1.5...v3.1.6) (2026-04-17)
 
 ## [3.1.5](https://github.com/sebbo2002/tgtg-ical/compare/v3.1.4...v3.1.5) (2026-03-29)

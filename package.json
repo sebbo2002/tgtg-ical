@@ -14,7 +14,7 @@
         "@sentry/node": "^10.75.2",
         "cookie-parser": "^1.4.6",
         "express": "^5.3.0",
-        "he": "^1.2.0",
+        "he": "^2.0.0",
         "ical-generator": "^11.1.2",
         "mailparser": "^3.9.28",
         "moment-timezone": "^0.6.5"

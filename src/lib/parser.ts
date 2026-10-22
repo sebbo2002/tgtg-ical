@@ -1,5 +1,5 @@
 import { captureException } from '@sentry/node';
-import he from 'he';
+import { decode } from 'he';
 import { type ParsedMail, simpleParser } from 'mailparser';
 import moment from 'moment-timezone';
 
@@ -609,7 +609,7 @@ export default class Parser {
             throw new Error('Price is not a number!');
         }
 
-        let name = he.decode(matches[1][1].trim());
+        let name = decode(matches[1][1].trim());
         if (name.endsWith('!')) {
             name = name.slice(0, -1);
         }
@@ -617,7 +617,7 @@ export default class Parser {
         return {
             amount,
             location: {
-                address: he.decode(address),
+                address: decode(address),
                 name,
             },
             orderId: matches[0][1].trim(),

@@ -1,3 +1,9 @@
+## [3.1.12](https://github.com/sebbo2002/tgtg-ical/compare/v3.1.11...v3.1.12) (2026-10-29)
+
+### Bug Fixes
+
+- use named he import for he v2 compatibility ([8338070](https://github.com/sebbo2002/tgtg-ical/commit/833807078f3fd5fe2a407b46af279780760c1fdf))
+
 ## [3.1.11](https://github.com/sebbo2002/tgtg-ical/compare/v3.1.10...v3.1.11) (2026-09-30)
 
 ## [3.1.10](https://github.com/sebbo2002/tgtg-ical/compare/v3.1.9...v3.1.10) (2026-08-25)

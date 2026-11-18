@@ -1,3 +1,5 @@
+## [3.1.13](https://github.com/sebbo2002/tgtg-ical/compare/v3.1.12...v3.1.13) (2026-11-18)
+
 ## [3.1.12](https://github.com/sebbo2002/tgtg-ical/compare/v3.1.11...v3.1.12) (2026-10-29)
 
 ### Bug Fixes
